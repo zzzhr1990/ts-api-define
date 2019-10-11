@@ -114,7 +114,7 @@ proto.services.User.toObject = function(includeInstance, msg) {
     name: jspb.Message.getFieldWithDefault(msg, 2, ""),
     password: jspb.Message.getFieldWithDefault(msg, 3, ""),
     salt: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    countrycode: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    countryCode: jspb.Message.getFieldWithDefault(msg, 5, ""),
     phone: jspb.Message.getFieldWithDefault(msg, 6, ""),
     email: jspb.Message.getFieldWithDefault(msg, 7, ""),
     createTime: jspb.Message.getFieldWithDefault(msg, 8, 0),
@@ -179,7 +179,7 @@ proto.services.User.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 5:
       var value = /** @type {string} */ (reader.readString());
-      msg.setCountrycode(value);
+      msg.setCountryCode(value);
       break;
     case 6:
       var value = /** @type {string} */ (reader.readString());
@@ -278,7 +278,7 @@ proto.services.User.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getCountrycode();
+  f = message.getCountryCode();
   if (f.length > 0) {
     writer.writeString(
       5,
@@ -431,10 +431,10 @@ proto.services.User.prototype.setSalt = function(value) {
 
 
 /**
- * optional string countryCode = 5;
+ * optional string country_code = 5;
  * @return {string}
  */
-proto.services.User.prototype.getCountrycode = function() {
+proto.services.User.prototype.getCountryCode = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
 };
 
@@ -443,7 +443,7 @@ proto.services.User.prototype.getCountrycode = function() {
  * @param {string} value
  * @return {!proto.services.User} returns this
  */
-proto.services.User.prototype.setCountrycode = function(value) {
+proto.services.User.prototype.setCountryCode = function(value) {
   return jspb.Message.setProto3StringField(this, 5, value);
 };
 

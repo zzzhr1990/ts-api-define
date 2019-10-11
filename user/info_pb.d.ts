@@ -16,8 +16,8 @@ export class User extends jspb.Message {
   getSalt(): string;
   setSalt(value: string): void;
 
-  getCountrycode(): string;
-  setCountrycode(value: string): void;
+  getCountryCode(): string;
+  setCountryCode(value: string): void;
 
   getPhone(): string;
   setPhone(value: string): void;
@@ -65,7 +65,7 @@ export namespace User {
     name: string,
     password: string,
     salt: string,
-    countrycode: string,
+    countryCode: string,
     phone: string,
     email: string,
     createTime: number,
