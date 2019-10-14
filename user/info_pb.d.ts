@@ -58,11 +58,6 @@ export class User extends jspb.Message {
   getLastActivateTime(): number;
   setLastActivateTime(value: number): void;
 
-  hasLog(): boolean;
-  clearLog(): void;
-  getLog(): Log | undefined;
-  setLog(value?: Log): void;
-
   clearSsrList(): void;
   getSsrList(): Array<string>;
   setSsrList(value: Array<string>): void;
@@ -98,7 +93,6 @@ export namespace User {
     vip: number,
     vipExpireTime: number,
     lastActivateTime: number,
-    log?: Log.AsObject,
     ssrList: Array<string>,
   }
 }

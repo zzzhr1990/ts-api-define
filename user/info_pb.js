@@ -106,7 +106,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.services.User.repeatedFields_ = [20];
+proto.services.User.repeatedFields_ = [19];
 
 
 
@@ -157,8 +157,7 @@ proto.services.User.toObject = function(includeInstance, msg) {
     vip: jspb.Message.getFieldWithDefault(msg, 16, 0),
     vipExpireTime: jspb.Message.getFieldWithDefault(msg, 17, 0),
     lastActivateTime: jspb.Message.getFieldWithDefault(msg, 18, 0),
-    log: (f = msg.getLog()) && proto.services.Log.toObject(includeInstance, f),
-    ssrList: (f = jspb.Message.getRepeatedField(msg, 20)) == null ? undefined : f
+    ssrList: (f = jspb.Message.getRepeatedField(msg, 19)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -268,11 +267,6 @@ proto.services.User.deserializeBinaryFromReader = function(msg, reader) {
       msg.setLastActivateTime(value);
       break;
     case 19:
-      var value = new proto.services.Log;
-      reader.readMessage(value,proto.services.Log.deserializeBinaryFromReader);
-      msg.setLog(value);
-      break;
-    case 20:
       var value = /** @type {string} */ (reader.readString());
       msg.addSsr(value);
       break;
@@ -431,18 +425,10 @@ proto.services.User.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getLog();
-  if (f != null) {
-    writer.writeMessage(
-      19,
-      f,
-      proto.services.Log.serializeBinaryToWriter
-    );
-  }
   f = message.getSsrList();
   if (f.length > 0) {
     writer.writeRepeatedString(
-      20,
+      19,
       f
     );
   }
@@ -774,48 +760,11 @@ proto.services.User.prototype.setLastActivateTime = function(value) {
 
 
 /**
- * optional Log log = 19;
- * @return {?proto.services.Log}
- */
-proto.services.User.prototype.getLog = function() {
-  return /** @type{?proto.services.Log} */ (
-    jspb.Message.getWrapperField(this, proto.services.Log, 19));
-};
-
-
-/**
- * @param {?proto.services.Log|undefined} value
- * @return {!proto.services.User} returns this
-*/
-proto.services.User.prototype.setLog = function(value) {
-  return jspb.Message.setWrapperField(this, 19, value);
-};
-
-
-/**
- * Clears the message field making it undefined.
- * @return {!proto.services.User} returns this
- */
-proto.services.User.prototype.clearLog = function() {
-  return this.setLog(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.services.User.prototype.hasLog = function() {
-  return jspb.Message.getField(this, 19) != null;
-};
-
-
-/**
- * repeated string ssr = 20;
+ * repeated string ssr = 19;
  * @return {!Array<string>}
  */
 proto.services.User.prototype.getSsrList = function() {
-  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 20));
+  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 19));
 };
 
 
@@ -824,7 +773,7 @@ proto.services.User.prototype.getSsrList = function() {
  * @return {!proto.services.User} returns this
  */
 proto.services.User.prototype.setSsrList = function(value) {
-  return jspb.Message.setField(this, 20, value || []);
+  return jspb.Message.setField(this, 19, value || []);
 };
 
 
@@ -834,7 +783,7 @@ proto.services.User.prototype.setSsrList = function(value) {
  * @return {!proto.services.User} returns this
  */
 proto.services.User.prototype.addSsr = function(value, opt_index) {
-  return jspb.Message.addToRepeatedField(this, 20, value, opt_index);
+  return jspb.Message.addToRepeatedField(this, 19, value, opt_index);
 };
 
 
