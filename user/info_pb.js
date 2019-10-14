@@ -27,7 +27,7 @@ goog.exportSymbol('proto.services.User', null, global);
  * @constructor
  */
 proto.services.User = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, proto.services.User.repeatedFields_, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.services.User, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -101,13 +101,6 @@ if (goog.DEBUG && !COMPILED) {
   proto.services.PasswordPair.displayName = 'proto.services.PasswordPair';
 }
 
-/**
- * List of repeated fields within this message type.
- * @private {!Array<number>}
- * @const
- */
-proto.services.User.repeatedFields_ = [19];
-
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -156,8 +149,7 @@ proto.services.User.toObject = function(includeInstance, msg) {
     version: jspb.Message.getFieldWithDefault(msg, 15, 0),
     vip: jspb.Message.getFieldWithDefault(msg, 16, 0),
     vipExpireTime: jspb.Message.getFieldWithDefault(msg, 17, 0),
-    lastActivateTime: jspb.Message.getFieldWithDefault(msg, 18, 0),
-    ssrList: (f = jspb.Message.getRepeatedField(msg, 19)) == null ? undefined : f
+    lastActivateTime: jspb.Message.getFieldWithDefault(msg, 18, 0)
   };
 
   if (includeInstance) {
@@ -265,10 +257,6 @@ proto.services.User.deserializeBinaryFromReader = function(msg, reader) {
     case 18:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setLastActivateTime(value);
-      break;
-    case 19:
-      var value = /** @type {string} */ (reader.readString());
-      msg.addSsr(value);
       break;
     default:
       reader.skipField();
@@ -422,13 +410,6 @@ proto.services.User.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt64(
       18,
-      f
-    );
-  }
-  f = message.getSsrList();
-  if (f.length > 0) {
-    writer.writeRepeatedString(
-      19,
       f
     );
   }
@@ -756,43 +737,6 @@ proto.services.User.prototype.getLastActivateTime = function() {
  */
 proto.services.User.prototype.setLastActivateTime = function(value) {
   return jspb.Message.setProto3IntField(this, 18, value);
-};
-
-
-/**
- * repeated string ssr = 19;
- * @return {!Array<string>}
- */
-proto.services.User.prototype.getSsrList = function() {
-  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 19));
-};
-
-
-/**
- * @param {!Array<string>} value
- * @return {!proto.services.User} returns this
- */
-proto.services.User.prototype.setSsrList = function(value) {
-  return jspb.Message.setField(this, 19, value || []);
-};
-
-
-/**
- * @param {string} value
- * @param {number=} opt_index
- * @return {!proto.services.User} returns this
- */
-proto.services.User.prototype.addSsr = function(value, opt_index) {
-  return jspb.Message.addToRepeatedField(this, 19, value, opt_index);
-};
-
-
-/**
- * Clears the list making it empty but non-null.
- * @return {!proto.services.User} returns this
- */
-proto.services.User.prototype.clearSsrList = function() {
-  return this.setSsrList([]);
 };
 
 
