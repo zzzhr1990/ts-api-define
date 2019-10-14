@@ -148,7 +148,9 @@ proto.services.User.toObject = function(includeInstance, msg) {
     status: jspb.Message.getFieldWithDefault(msg, 14, 0),
     version: jspb.Message.getFieldWithDefault(msg, 15, 0),
     vip: jspb.Message.getFieldWithDefault(msg, 16, 0),
-    vipExpireTime: jspb.Message.getFieldWithDefault(msg, 17, 0)
+    vipExpireTime: jspb.Message.getFieldWithDefault(msg, 17, 0),
+    lastActivateTime: jspb.Message.getFieldWithDefault(msg, 18, 0),
+    log: (f = msg.getLog()) && proto.services.Log.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -252,6 +254,15 @@ proto.services.User.deserializeBinaryFromReader = function(msg, reader) {
     case 17:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setVipExpireTime(value);
+      break;
+    case 18:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setLastActivateTime(value);
+      break;
+    case 19:
+      var value = new proto.services.Log;
+      reader.readMessage(value,proto.services.Log.deserializeBinaryFromReader);
+      msg.setLog(value);
       break;
     default:
       reader.skipField();
@@ -399,6 +410,21 @@ proto.services.User.serializeBinaryToWriter = function(message, writer) {
     writer.writeInt64(
       17,
       f
+    );
+  }
+  f = message.getLastActivateTime();
+  if (f !== 0) {
+    writer.writeInt64(
+      18,
+      f
+    );
+  }
+  f = message.getLog();
+  if (f != null) {
+    writer.writeMessage(
+      19,
+      f,
+      proto.services.Log.serializeBinaryToWriter
     );
   }
 };
@@ -707,6 +733,61 @@ proto.services.User.prototype.getVipExpireTime = function() {
  */
 proto.services.User.prototype.setVipExpireTime = function(value) {
   return jspb.Message.setProto3IntField(this, 17, value);
+};
+
+
+/**
+ * optional int64 last_activate_time = 18;
+ * @return {number}
+ */
+proto.services.User.prototype.getLastActivateTime = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 18, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.services.User} returns this
+ */
+proto.services.User.prototype.setLastActivateTime = function(value) {
+  return jspb.Message.setProto3IntField(this, 18, value);
+};
+
+
+/**
+ * optional Log log = 19;
+ * @return {?proto.services.Log}
+ */
+proto.services.User.prototype.getLog = function() {
+  return /** @type{?proto.services.Log} */ (
+    jspb.Message.getWrapperField(this, proto.services.Log, 19));
+};
+
+
+/**
+ * @param {?proto.services.Log|undefined} value
+ * @return {!proto.services.User} returns this
+*/
+proto.services.User.prototype.setLog = function(value) {
+  return jspb.Message.setWrapperField(this, 19, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.services.User} returns this
+ */
+proto.services.User.prototype.clearLog = function() {
+  return this.setLog(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.services.User.prototype.hasLog = function() {
+  return jspb.Message.getField(this, 19) != null;
 };
 
 
