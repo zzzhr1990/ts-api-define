@@ -63,6 +63,11 @@ export class User extends jspb.Message {
   getLog(): Log | undefined;
   setLog(value?: Log): void;
 
+  clearSsrList(): void;
+  getSsrList(): Array<string>;
+  setSsrList(value: Array<string>): void;
+  addSsr(value: string, index?: number): string;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): User.AsObject;
   static toObject(includeInstance: boolean, msg: User): User.AsObject;
@@ -94,6 +99,7 @@ export namespace User {
     vipExpireTime: number,
     lastActivateTime: number,
     log?: Log.AsObject,
+    ssrList: Array<string>,
   }
 }
 

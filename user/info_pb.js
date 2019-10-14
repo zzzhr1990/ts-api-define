@@ -27,7 +27,7 @@ goog.exportSymbol('proto.services.User', null, global);
  * @constructor
  */
 proto.services.User = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.services.User.repeatedFields_, null);
 };
 goog.inherits(proto.services.User, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -101,6 +101,13 @@ if (goog.DEBUG && !COMPILED) {
   proto.services.PasswordPair.displayName = 'proto.services.PasswordPair';
 }
 
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.services.User.repeatedFields_ = [20];
+
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -150,7 +157,8 @@ proto.services.User.toObject = function(includeInstance, msg) {
     vip: jspb.Message.getFieldWithDefault(msg, 16, 0),
     vipExpireTime: jspb.Message.getFieldWithDefault(msg, 17, 0),
     lastActivateTime: jspb.Message.getFieldWithDefault(msg, 18, 0),
-    log: (f = msg.getLog()) && proto.services.Log.toObject(includeInstance, f)
+    log: (f = msg.getLog()) && proto.services.Log.toObject(includeInstance, f),
+    ssrList: (f = jspb.Message.getRepeatedField(msg, 20)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -263,6 +271,10 @@ proto.services.User.deserializeBinaryFromReader = function(msg, reader) {
       var value = new proto.services.Log;
       reader.readMessage(value,proto.services.Log.deserializeBinaryFromReader);
       msg.setLog(value);
+      break;
+    case 20:
+      var value = /** @type {string} */ (reader.readString());
+      msg.addSsr(value);
       break;
     default:
       reader.skipField();
@@ -425,6 +437,13 @@ proto.services.User.serializeBinaryToWriter = function(message, writer) {
       19,
       f,
       proto.services.Log.serializeBinaryToWriter
+    );
+  }
+  f = message.getSsrList();
+  if (f.length > 0) {
+    writer.writeRepeatedString(
+      20,
+      f
     );
   }
 };
@@ -788,6 +807,43 @@ proto.services.User.prototype.clearLog = function() {
  */
 proto.services.User.prototype.hasLog = function() {
   return jspb.Message.getField(this, 19) != null;
+};
+
+
+/**
+ * repeated string ssr = 20;
+ * @return {!Array<string>}
+ */
+proto.services.User.prototype.getSsrList = function() {
+  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 20));
+};
+
+
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.services.User} returns this
+ */
+proto.services.User.prototype.setSsrList = function(value) {
+  return jspb.Message.setField(this, 20, value || []);
+};
+
+
+/**
+ * @param {string} value
+ * @param {number=} opt_index
+ * @return {!proto.services.User} returns this
+ */
+proto.services.User.prototype.addSsr = function(value, opt_index) {
+  return jspb.Message.addToRepeatedField(this, 20, value, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.services.User} returns this
+ */
+proto.services.User.prototype.clearSsrList = function() {
+  return this.setSsrList([]);
 };
 
 
