@@ -63,10 +63,10 @@ export class User extends jspb.Message {
   getLog(): Log | undefined;
   setLog(value?: Log): void;
 
-  clearListList(): void;
-  getListList(): Array<string>;
-  setListList(value: Array<string>): void;
-  addList(value: string, index?: number): string;
+  clearSsrList(): void;
+  getSsrList(): Array<string>;
+  setSsrList(value: Array<string>): void;
+  addSsr(value: string, index?: number): string;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): User.AsObject;
@@ -99,7 +99,7 @@ export namespace User {
     vipExpireTime: number,
     lastActivateTime: number,
     log?: Log.AsObject,
-    listList: Array<string>,
+    ssrList: Array<string>,
   }
 }
 
