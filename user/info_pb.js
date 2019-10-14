@@ -158,7 +158,7 @@ proto.services.User.toObject = function(includeInstance, msg) {
     vipExpireTime: jspb.Message.getFieldWithDefault(msg, 17, 0),
     lastActivateTime: jspb.Message.getFieldWithDefault(msg, 18, 0),
     log: (f = msg.getLog()) && proto.services.Log.toObject(includeInstance, f),
-    ssrList: (f = jspb.Message.getRepeatedField(msg, 20)) == null ? undefined : f
+    listList: (f = jspb.Message.getRepeatedField(msg, 20)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -274,7 +274,7 @@ proto.services.User.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 20:
       var value = /** @type {string} */ (reader.readString());
-      msg.addSsr(value);
+      msg.addList(value);
       break;
     default:
       reader.skipField();
@@ -439,7 +439,7 @@ proto.services.User.serializeBinaryToWriter = function(message, writer) {
       proto.services.Log.serializeBinaryToWriter
     );
   }
-  f = message.getSsrList();
+  f = message.getListList();
   if (f.length > 0) {
     writer.writeRepeatedString(
       20,
@@ -811,10 +811,10 @@ proto.services.User.prototype.hasLog = function() {
 
 
 /**
- * repeated string ssr = 20;
+ * repeated string list = 20;
  * @return {!Array<string>}
  */
-proto.services.User.prototype.getSsrList = function() {
+proto.services.User.prototype.getListList = function() {
   return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 20));
 };
 
@@ -823,7 +823,7 @@ proto.services.User.prototype.getSsrList = function() {
  * @param {!Array<string>} value
  * @return {!proto.services.User} returns this
  */
-proto.services.User.prototype.setSsrList = function(value) {
+proto.services.User.prototype.setListList = function(value) {
   return jspb.Message.setField(this, 20, value || []);
 };
 
@@ -833,7 +833,7 @@ proto.services.User.prototype.setSsrList = function(value) {
  * @param {number=} opt_index
  * @return {!proto.services.User} returns this
  */
-proto.services.User.prototype.addSsr = function(value, opt_index) {
+proto.services.User.prototype.addList = function(value, opt_index) {
   return jspb.Message.addToRepeatedField(this, 20, value, opt_index);
 };
 
@@ -842,8 +842,8 @@ proto.services.User.prototype.addSsr = function(value, opt_index) {
  * Clears the list making it empty but non-null.
  * @return {!proto.services.User} returns this
  */
-proto.services.User.prototype.clearSsrList = function() {
-  return this.setSsrList([]);
+proto.services.User.prototype.clearListList = function() {
+  return this.setListList([]);
 };
 
 
