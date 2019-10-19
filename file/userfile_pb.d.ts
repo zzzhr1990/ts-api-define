@@ -160,3 +160,37 @@ export namespace UserFilePageRequest {
   }
 }
 
+export class UserFilePageResponse extends jspb.Message {
+  hasParent(): boolean;
+  clearParent(): void;
+  getParent(): UserFile | undefined;
+  setParent(value?: UserFile): void;
+
+  clearFileList(): void;
+  getFileList(): Array<UserFile>;
+  setFileList(value: Array<UserFile>): void;
+  addFile(value?: UserFile, index?: number): UserFile;
+
+  hasPageInfo(): boolean;
+  clearPageInfo(): void;
+  getPageInfo(): common_common_entity_pb.PageInfo | undefined;
+  setPageInfo(value?: common_common_entity_pb.PageInfo): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): UserFilePageResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: UserFilePageResponse): UserFilePageResponse.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: UserFilePageResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): UserFilePageResponse;
+  static deserializeBinaryFromReader(message: UserFilePageResponse, reader: jspb.BinaryReader): UserFilePageResponse;
+}
+
+export namespace UserFilePageResponse {
+  export type AsObject = {
+    parent?: UserFile.AsObject,
+    fileList: Array<UserFile.AsObject>,
+    pageInfo?: common_common_entity_pb.PageInfo.AsObject,
+  }
+}
+
