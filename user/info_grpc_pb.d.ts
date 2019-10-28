@@ -15,6 +15,7 @@ interface IUserServiceService extends grpc.ServiceDefinition<grpc.UntypedService
   logoff: grpc.MethodDefinition<user_info_pb.User, user_info_pb.User>;
   update: grpc.MethodDefinition<user_info_pb.User, user_info_pb.User>;
   sendSms: grpc.MethodDefinition<user_info_pb.SmsRequest, user_info_pb.SmsResponse>;
+  validateSms: grpc.MethodDefinition<user_info_pb.SmsValidateRequest, user_info_pb.SmsValidateResponse>;
   changePassword: grpc.MethodDefinition<user_info_pb.PasswordPair, user_info_pb.User>;
 }
 
@@ -46,6 +47,9 @@ export class UserServiceClient extends grpc.Client {
   sendSms(argument: user_info_pb.SmsRequest, callback: grpc.requestCallback<user_info_pb.SmsResponse>): grpc.ClientUnaryCall;
   sendSms(argument: user_info_pb.SmsRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.SmsResponse>): grpc.ClientUnaryCall;
   sendSms(argument: user_info_pb.SmsRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.SmsResponse>): grpc.ClientUnaryCall;
+  validateSms(argument: user_info_pb.SmsValidateRequest, callback: grpc.requestCallback<user_info_pb.SmsValidateResponse>): grpc.ClientUnaryCall;
+  validateSms(argument: user_info_pb.SmsValidateRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.SmsValidateResponse>): grpc.ClientUnaryCall;
+  validateSms(argument: user_info_pb.SmsValidateRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.SmsValidateResponse>): grpc.ClientUnaryCall;
   changePassword(argument: user_info_pb.PasswordPair, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
   changePassword(argument: user_info_pb.PasswordPair, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
   changePassword(argument: user_info_pb.PasswordPair, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<user_info_pb.User>): grpc.ClientUnaryCall;
