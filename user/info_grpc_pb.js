@@ -15,6 +15,28 @@ function deserialize_services_PasswordPair(buffer_arg) {
   return user_info_pb.PasswordPair.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_services_SmsRequest(arg) {
+  if (!(arg instanceof user_info_pb.SmsRequest)) {
+    throw new Error('Expected argument of type services.SmsRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_services_SmsRequest(buffer_arg) {
+  return user_info_pb.SmsRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_services_SmsResponse(arg) {
+  if (!(arg instanceof user_info_pb.SmsResponse)) {
+    throw new Error('Expected argument of type services.SmsResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_services_SmsResponse(buffer_arg) {
+  return user_info_pb.SmsResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_services_User(arg) {
   if (!(arg instanceof user_info_pb.User)) {
     throw new Error('Expected argument of type services.User');
@@ -107,6 +129,17 @@ var UserServiceService = exports.UserServiceService = {
   },
   // rpc getBalance (Balance) returns (Balance) {}
   // rpc setSpaceUsed (Balance) returns (Balance) {}
+  sendSms: {
+    path: '/services.UserService/SendSms',
+    requestStream: false,
+    responseStream: false,
+    requestType: user_info_pb.SmsRequest,
+    responseType: user_info_pb.SmsResponse,
+    requestSerialize: serialize_services_SmsRequest,
+    requestDeserialize: deserialize_services_SmsRequest,
+    responseSerialize: serialize_services_SmsResponse,
+    responseDeserialize: deserialize_services_SmsResponse,
+  },
   changePassword: {
     path: '/services.UserService/ChangePassword',
     requestStream: false,
