@@ -137,6 +137,12 @@ export class SmsResponse extends jspb.Message {
   getSession(): string;
   setSession(value: string): void;
 
+  getType(): number;
+  setType(value: number): void;
+
+  getExpireTime(): number;
+  setExpireTime(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): SmsResponse.AsObject;
   static toObject(includeInstance: boolean, msg: SmsResponse): SmsResponse.AsObject;
@@ -150,6 +156,8 @@ export class SmsResponse extends jspb.Message {
 export namespace SmsResponse {
   export type AsObject = {
     session: string,
+    type: number,
+    expireTime: number,
   }
 }
 
