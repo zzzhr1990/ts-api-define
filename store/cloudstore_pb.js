@@ -103,7 +103,8 @@ proto.services.CloudStore.toObject = function(includeInstance, msg) {
     flag: jspb.Message.getFieldWithDefault(msg, 13, 0),
     status: jspb.Message.getFieldWithDefault(msg, 14, 0),
     fetchTime: jspb.Message.getFieldWithDefault(msg, 15, 0),
-    downloadAddress: jspb.Message.getFieldWithDefault(msg, 16, "")
+    md5: jspb.Message.getFieldWithDefault(msg, 16, ""),
+    sha1: jspb.Message.getFieldWithDefault(msg, 17, "")
   };
 
   if (includeInstance) {
@@ -202,7 +203,11 @@ proto.services.CloudStore.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 16:
       var value = /** @type {string} */ (reader.readString());
-      msg.setDownloadAddress(value);
+      msg.setMd5(value);
+      break;
+    case 17:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSha1(value);
       break;
     default:
       reader.skipField();
@@ -338,10 +343,17 @@ proto.services.CloudStore.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getDownloadAddress();
+  f = message.getMd5();
   if (f.length > 0) {
     writer.writeString(
       16,
+      f
+    );
+  }
+  f = message.getSha1();
+  if (f.length > 0) {
+    writer.writeString(
+      17,
       f
     );
   }
@@ -619,10 +631,10 @@ proto.services.CloudStore.prototype.setFetchTime = function(value) {
 
 
 /**
- * optional string download_address = 16;
+ * optional string md5 = 16;
  * @return {string}
  */
-proto.services.CloudStore.prototype.getDownloadAddress = function() {
+proto.services.CloudStore.prototype.getMd5 = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 16, ""));
 };
 
@@ -631,8 +643,26 @@ proto.services.CloudStore.prototype.getDownloadAddress = function() {
  * @param {string} value
  * @return {!proto.services.CloudStore} returns this
  */
-proto.services.CloudStore.prototype.setDownloadAddress = function(value) {
+proto.services.CloudStore.prototype.setMd5 = function(value) {
   return jspb.Message.setProto3StringField(this, 16, value);
+};
+
+
+/**
+ * optional string sha1 = 17;
+ * @return {string}
+ */
+proto.services.CloudStore.prototype.getSha1 = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 17, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.services.CloudStore} returns this
+ */
+proto.services.CloudStore.prototype.setSha1 = function(value) {
+  return jspb.Message.setProto3StringField(this, 17, value);
 };
 
 

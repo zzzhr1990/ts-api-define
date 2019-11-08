@@ -74,19 +74,6 @@ var CloudStoreServiceService = exports.CloudStoreServiceService = {
     responseSerialize: serialize_services_CloudStoreList,
     responseDeserialize: deserialize_services_CloudStoreList,
   },
-  // rpc batchGetByHash (StringListEntity) returns (CloudStoreList) {}
-  // rpc getOrEmpty (CloudStore) returns (CloudStore) {}
-  getInnerDownloadAddress: {
-    path: '/services.CloudStoreService/GetInnerDownloadAddress',
-    requestStream: false,
-    responseStream: false,
-    requestType: store_cloudstore_pb.CloudStore,
-    responseType: store_cloudstore_pb.CloudStore,
-    requestSerialize: serialize_services_CloudStore,
-    requestDeserialize: deserialize_services_CloudStore,
-    responseSerialize: serialize_services_CloudStore,
-    responseDeserialize: deserialize_services_CloudStore,
-  },
 };
 
 exports.CloudStoreServiceClient = grpc.makeGenericClientConstructor(CloudStoreServiceService);

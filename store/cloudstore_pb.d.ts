@@ -49,8 +49,11 @@ export class CloudStore extends jspb.Message {
   getFetchTime(): number;
   setFetchTime(value: number): void;
 
-  getDownloadAddress(): string;
-  setDownloadAddress(value: string): void;
+  getMd5(): string;
+  setMd5(value: string): void;
+
+  getSha1(): string;
+  setSha1(value: string): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): CloudStore.AsObject;
@@ -79,7 +82,8 @@ export namespace CloudStore {
     flag: number,
     status: number,
     fetchTime: number,
-    downloadAddress: string,
+    md5: string,
+    sha1: string,
   }
 }
 
