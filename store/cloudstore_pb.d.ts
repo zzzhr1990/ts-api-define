@@ -2,7 +2,6 @@
 // file: store/cloudstore.proto
 
 import * as jspb from "google-protobuf";
-import * as common_common_entity_pb from "../common/common_entity_pb";
 
 export class CloudStore extends jspb.Message {
   getHash(): string;
@@ -14,14 +13,14 @@ export class CloudStore extends jspb.Message {
   getMime(): string;
   setMime(value: string): void;
 
-  getUploaduser(): number;
-  setUploaduser(value: number): void;
+  getUploadUser(): number;
+  setUploadUser(value: number): void;
 
   getCtime(): number;
   setCtime(value: number): void;
 
-  getOriginalafilename(): string;
-  setOriginalafilename(value: string): void;
+  getOriginalalFilename(): string;
+  setOriginalalFilename(value: string): void;
 
   getStore(): number;
   setStore(value: number): void;
@@ -29,20 +28,26 @@ export class CloudStore extends jspb.Message {
   getKey(): string;
   setKey(value: string): void;
 
+  getColdKey(): string;
+  setColdKey(value: string): void;
+
   getType(): number;
   setType(value: number): void;
 
   getPreview(): boolean;
   setPreview(value: boolean): void;
 
-  getPreviewtype(): number;
-  setPreviewtype(value: number): void;
+  getPreviewType(): number;
+  setPreviewType(value: number): void;
 
   getFlag(): number;
   setFlag(value: number): void;
 
-  getDownloadaddress(): string;
-  setDownloadaddress(value: string): void;
+  getStatus(): number;
+  setStatus(value: number): void;
+
+  getDownloadAddress(): string;
+  setDownloadAddress(value: string): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): CloudStore.AsObject;
@@ -59,16 +64,18 @@ export namespace CloudStore {
     hash: string,
     size: number,
     mime: string,
-    uploaduser: number,
+    uploadUser: number,
     ctime: number,
-    originalafilename: string,
+    originalalFilename: string,
     store: number,
     key: string,
+    coldKey: string,
     type: number,
     preview: boolean,
-    previewtype: number,
+    previewType: number,
     flag: number,
-    downloadaddress: string,
+    status: number,
+    downloadAddress: string,
   }
 }
 
