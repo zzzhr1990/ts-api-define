@@ -46,6 +46,9 @@ export class CloudStore extends jspb.Message {
   getStatus(): number;
   setStatus(value: number): void;
 
+  getFetchTime(): number;
+  setFetchTime(value: number): void;
+
   getDownloadAddress(): string;
   setDownloadAddress(value: string): void;
 
@@ -75,6 +78,7 @@ export namespace CloudStore {
     previewType: number,
     flag: number,
     status: number,
+    fetchTime: number,
     downloadAddress: string,
   }
 }

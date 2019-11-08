@@ -102,7 +102,8 @@ proto.services.CloudStore.toObject = function(includeInstance, msg) {
     previewType: jspb.Message.getFieldWithDefault(msg, 12, 0),
     flag: jspb.Message.getFieldWithDefault(msg, 13, 0),
     status: jspb.Message.getFieldWithDefault(msg, 14, 0),
-    downloadAddress: jspb.Message.getFieldWithDefault(msg, 15, "")
+    fetchTime: jspb.Message.getFieldWithDefault(msg, 15, 0),
+    downloadAddress: jspb.Message.getFieldWithDefault(msg, 16, "")
   };
 
   if (includeInstance) {
@@ -196,6 +197,10 @@ proto.services.CloudStore.deserializeBinaryFromReader = function(msg, reader) {
       msg.setStatus(value);
       break;
     case 15:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setFetchTime(value);
+      break;
+    case 16:
       var value = /** @type {string} */ (reader.readString());
       msg.setDownloadAddress(value);
       break;
@@ -326,10 +331,17 @@ proto.services.CloudStore.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
+  f = message.getFetchTime();
+  if (f !== 0) {
+    writer.writeInt64(
+      15,
+      f
+    );
+  }
   f = message.getDownloadAddress();
   if (f.length > 0) {
     writer.writeString(
-      15,
+      16,
       f
     );
   }
@@ -589,11 +601,29 @@ proto.services.CloudStore.prototype.setStatus = function(value) {
 
 
 /**
- * optional string download_address = 15;
+ * optional int64 fetch_time = 15;
+ * @return {number}
+ */
+proto.services.CloudStore.prototype.getFetchTime = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 15, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.services.CloudStore} returns this
+ */
+proto.services.CloudStore.prototype.setFetchTime = function(value) {
+  return jspb.Message.setProto3IntField(this, 15, value);
+};
+
+
+/**
+ * optional string download_address = 16;
  * @return {string}
  */
 proto.services.CloudStore.prototype.getDownloadAddress = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 15, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 16, ""));
 };
 
 
@@ -602,7 +632,7 @@ proto.services.CloudStore.prototype.getDownloadAddress = function() {
  * @return {!proto.services.CloudStore} returns this
  */
 proto.services.CloudStore.prototype.setDownloadAddress = function(value) {
-  return jspb.Message.setProto3StringField(this, 15, value);
+  return jspb.Message.setProto3StringField(this, 16, value);
 };
 
 
