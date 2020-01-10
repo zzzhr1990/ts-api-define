@@ -28,9 +28,9 @@ export namespace BatchGetRequest {
 
 export class BatchGetResponse extends jspb.Message {
   clearDataList(): void;
-  getDataList(): Array<SystemOfflineTaskMeta>;
-  setDataList(value: Array<SystemOfflineTaskMeta>): void;
-  addData(value?: SystemOfflineTaskMeta, index?: number): SystemOfflineTaskMeta;
+  getDataList(): Array<SystemOfflineTaskDetail>;
+  setDataList(value: Array<SystemOfflineTaskDetail>): void;
+  addData(value?: SystemOfflineTaskDetail, index?: number): SystemOfflineTaskDetail;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): BatchGetResponse.AsObject;
@@ -44,7 +44,7 @@ export class BatchGetResponse extends jspb.Message {
 
 export namespace BatchGetResponse {
   export type AsObject = {
-    dataList: Array<SystemOfflineTaskMeta.AsObject>,
+    dataList: Array<SystemOfflineTaskDetail.AsObject>,
   }
 }
 
@@ -268,7 +268,10 @@ export namespace SystemOfflineTaskFile {
   }
 }
 
-export class SystemOfflineTaskMeta extends jspb.Message {
+export class SystemOfflineTaskDetail extends jspb.Message {
+  getIdentity(): string;
+  setIdentity(value: string): void;
+
   hasTask(): boolean;
   clearTask(): void;
   getTask(): SystemOfflineTask | undefined;
@@ -280,17 +283,18 @@ export class SystemOfflineTaskMeta extends jspb.Message {
   addFiles(value?: SystemOfflineTaskFile, index?: number): SystemOfflineTaskFile;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): SystemOfflineTaskMeta.AsObject;
-  static toObject(includeInstance: boolean, msg: SystemOfflineTaskMeta): SystemOfflineTaskMeta.AsObject;
+  toObject(includeInstance?: boolean): SystemOfflineTaskDetail.AsObject;
+  static toObject(includeInstance: boolean, msg: SystemOfflineTaskDetail): SystemOfflineTaskDetail.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: SystemOfflineTaskMeta, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): SystemOfflineTaskMeta;
-  static deserializeBinaryFromReader(message: SystemOfflineTaskMeta, reader: jspb.BinaryReader): SystemOfflineTaskMeta;
+  static serializeBinaryToWriter(message: SystemOfflineTaskDetail, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): SystemOfflineTaskDetail;
+  static deserializeBinaryFromReader(message: SystemOfflineTaskDetail, reader: jspb.BinaryReader): SystemOfflineTaskDetail;
 }
 
-export namespace SystemOfflineTaskMeta {
+export namespace SystemOfflineTaskDetail {
   export type AsObject = {
+    identity: string,
     task?: SystemOfflineTask.AsObject,
     filesList: Array<SystemOfflineTaskFile.AsObject>,
   }
