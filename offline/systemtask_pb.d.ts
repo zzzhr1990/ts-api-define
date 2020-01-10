@@ -55,11 +55,11 @@ export class SystemOfflineTask extends jspb.Message {
   getSize(): number;
   setSize(value: number): void;
 
-  getCreateuser(): number;
-  setCreateuser(value: number): void;
+  getCreateUser(): number;
+  setCreateUser(value: number): void;
 
-  getCreatetime(): number;
-  setCreatetime(value: number): void;
+  getCreateTime(): number;
+  setCreateTime(value: number): void;
 
   getName(): string;
   setName(value: string): void;
@@ -73,23 +73,23 @@ export class SystemOfflineTask extends jspb.Message {
   getFlag(): number;
   setFlag(value: number): void;
 
-  getDownloadsize(): number;
-  setDownloadsize(value: number): void;
+  getDownloadSize(): number;
+  setDownloadSize(value: number): void;
 
-  getErrorcode(): number;
-  setErrorcode(value: number): void;
+  getErrorCode(): number;
+  setErrorCode(value: number): void;
 
-  getErrormessage(): string;
-  setErrormessage(value: string): void;
+  getErrorMessage(): string;
+  setErrorMessage(value: string): void;
 
-  getCreateip(): string;
-  setCreateip(value: string): void;
+  getCreateIp(): string;
+  setCreateIp(value: string): void;
 
   getData(): string;
   setData(value: string): void;
 
-  getPreview(): boolean;
-  setPreview(value: boolean): void;
+  getTextLink(): string;
+  setTextLink(value: string): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): SystemOfflineTask.AsObject;
@@ -105,18 +105,18 @@ export namespace SystemOfflineTask {
   export type AsObject = {
     identity: string,
     size: number,
-    createuser: number,
-    createtime: number,
+    createUser: number,
+    createTime: number,
     name: string,
     type: number,
     status: number,
     flag: number,
-    downloadsize: number,
-    errorcode: number,
-    errormessage: string,
-    createip: string,
+    downloadSize: number,
+    errorCode: number,
+    errorMessage: string,
+    createIp: string,
     data: string,
-    preview: boolean,
+    textLink: string,
   }
 }
 
@@ -155,9 +155,6 @@ export class StatusChangeRequest extends jspb.Message {
   getStatus(): number;
   setStatus(value: number): void;
 
-  getRemovelistener(): boolean;
-  setRemovelistener(value: boolean): void;
-
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): StatusChangeRequest.AsObject;
   static toObject(includeInstance: boolean, msg: StatusChangeRequest): StatusChangeRequest.AsObject;
@@ -172,7 +169,6 @@ export namespace StatusChangeRequest {
   export type AsObject = {
     identity: string,
     status: number,
-    removelistener: boolean,
   }
 }
 
@@ -205,14 +201,14 @@ export namespace ErrorRequest {
 }
 
 export class SystemOfflineTaskFile extends jspb.Message {
-  getDownloadidentity(): string;
-  setDownloadidentity(value: string): void;
+  getDownloadIdentity(): string;
+  setDownloadIdentity(value: string): void;
 
-  getPathidentity(): string;
-  setPathidentity(value: string): void;
+  getPathIdentity(): string;
+  setPathIdentity(value: string): void;
 
-  getCreatetime(): number;
-  setCreatetime(value: number): void;
+  getCreateTime(): number;
+  setCreateTime(value: number): void;
 
   getName(): string;
   setName(value: string): void;
@@ -226,8 +222,8 @@ export class SystemOfflineTaskFile extends jspb.Message {
   getSize(): number;
   setSize(value: number): void;
 
-  getDownloadsize(): number;
-  setDownloadsize(value: number): void;
+  getDownloadSize(): number;
+  setDownloadSize(value: number): void;
 
   getStatus(): number;
   setStatus(value: number): void;
@@ -235,8 +231,8 @@ export class SystemOfflineTaskFile extends jspb.Message {
   getFlag(): number;
   setFlag(value: number): void;
 
-  getFileindex(): number;
-  setFileindex(value: number): void;
+  getFileIndex(): number;
+  setFileIndex(value: number): void;
 
   getFinish(): boolean;
   setFinish(value: boolean): void;
@@ -256,17 +252,17 @@ export class SystemOfflineTaskFile extends jspb.Message {
 
 export namespace SystemOfflineTaskFile {
   export type AsObject = {
-    downloadidentity: string,
-    pathidentity: string,
-    createtime: number,
+    downloadIdentity: string,
+    pathIdentity: string,
+    createTime: number,
     name: string,
     path: string,
     hash: string,
     size: number,
-    downloadsize: number,
+    downloadSize: number,
     status: number,
     flag: number,
-    fileindex: number,
+    fileIndex: number,
     finish: boolean,
     directory: boolean,
   }
@@ -296,28 +292,6 @@ export class SystemOfflineTaskMeta extends jspb.Message {
 export namespace SystemOfflineTaskMeta {
   export type AsObject = {
     task?: SystemOfflineTask.AsObject,
-    filesList: Array<SystemOfflineTaskFile.AsObject>,
-  }
-}
-
-export class SystemOfflineTaskFiles extends jspb.Message {
-  clearFilesList(): void;
-  getFilesList(): Array<SystemOfflineTaskFile>;
-  setFilesList(value: Array<SystemOfflineTaskFile>): void;
-  addFiles(value?: SystemOfflineTaskFile, index?: number): SystemOfflineTaskFile;
-
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): SystemOfflineTaskFiles.AsObject;
-  static toObject(includeInstance: boolean, msg: SystemOfflineTaskFiles): SystemOfflineTaskFiles.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: SystemOfflineTaskFiles, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): SystemOfflineTaskFiles;
-  static deserializeBinaryFromReader(message: SystemOfflineTaskFiles, reader: jspb.BinaryReader): SystemOfflineTaskFiles;
-}
-
-export namespace SystemOfflineTaskFiles {
-  export type AsObject = {
     filesList: Array<SystemOfflineTaskFile.AsObject>,
   }
 }
