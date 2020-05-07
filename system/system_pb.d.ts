@@ -68,11 +68,8 @@ export class UpdateInfo extends jspb.Message {
   getNumberVersion(): number;
   setNumberVersion(value: number): void;
 
-  getSha1(): string;
-  setSha1(value: string): void;
-
-  getMd5(): string;
-  setMd5(value: string): void;
+  getHash(): string;
+  setHash(value: string): void;
 
   getForce(): boolean;
   setForce(value: boolean): void;
@@ -124,8 +121,7 @@ export namespace UpdateInfo {
   export type AsObject = {
     identity: number,
     numberVersion: number,
-    sha1: string,
-    md5: string,
+    hash: string,
     force: boolean,
     version: string,
     platform: string,
