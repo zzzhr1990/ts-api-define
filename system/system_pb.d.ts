@@ -110,9 +110,6 @@ export class UpdateInfo extends jspb.Message {
   getSize(): number;
   setSize(value: number): void;
 
-  getLatest(): boolean;
-  setLatest(value: boolean): void;
-
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): UpdateInfo.AsObject;
   static toObject(includeInstance: boolean, msg: UpdateInfo): UpdateInfo.AsObject;
@@ -141,7 +138,6 @@ export namespace UpdateInfo {
     description: string,
     createTime: number,
     size: number,
-    latest: boolean,
   }
 }
 

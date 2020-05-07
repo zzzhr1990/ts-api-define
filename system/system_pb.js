@@ -557,8 +557,7 @@ proto.services.UpdateInfo.toObject = function(includeInstance, msg) {
     title: jspb.Message.getFieldWithDefault(msg, 13, ""),
     description: jspb.Message.getFieldWithDefault(msg, 14, ""),
     createTime: jspb.Message.getFieldWithDefault(msg, 15, 0),
-    size: jspb.Message.getFieldWithDefault(msg, 16, 0),
-    latest: jspb.Message.getBooleanFieldWithDefault(msg, 17, false)
+    size: jspb.Message.getFieldWithDefault(msg, 16, 0)
   };
 
   if (includeInstance) {
@@ -658,10 +657,6 @@ proto.services.UpdateInfo.deserializeBinaryFromReader = function(msg, reader) {
     case 16:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setSize(value);
-      break;
-    case 17:
-      var value = /** @type {boolean} */ (reader.readBool());
-      msg.setLatest(value);
       break;
     default:
       reader.skipField();
@@ -801,13 +796,6 @@ proto.services.UpdateInfo.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt64(
       16,
-      f
-    );
-  }
-  f = message.getLatest();
-  if (f) {
-    writer.writeBool(
-      17,
       f
     );
   }
@@ -1099,24 +1087,6 @@ proto.services.UpdateInfo.prototype.getSize = function() {
  */
 proto.services.UpdateInfo.prototype.setSize = function(value) {
   return jspb.Message.setProto3IntField(this, 16, value);
-};
-
-
-/**
- * optional bool latest = 17;
- * @return {boolean}
- */
-proto.services.UpdateInfo.prototype.getLatest = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 17, false));
-};
-
-
-/**
- * @param {boolean} value
- * @return {!proto.services.UpdateInfo} returns this
- */
-proto.services.UpdateInfo.prototype.setLatest = function(value) {
-  return jspb.Message.setProto3BooleanField(this, 17, value);
 };
 
 
