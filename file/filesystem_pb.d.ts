@@ -89,6 +89,9 @@ export class FileInfo extends jspb.Message {
   getChildrenTotal(): number;
   setChildrenTotal(value: number): void;
 
+  getTop(): number;
+  setTop(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): FileInfo.AsObject;
   static toObject(includeInstance: boolean, msg: FileInfo): FileInfo.AsObject;
@@ -129,6 +132,7 @@ export namespace FileInfo {
     lockTime: number,
     children: number,
     childrenTotal: number,
+    top: number,
   }
 }
 

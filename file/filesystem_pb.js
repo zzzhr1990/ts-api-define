@@ -161,7 +161,8 @@ proto.services.FileInfo.toObject = function(includeInstance, msg) {
     downloadAddress: jspb.Message.getFieldWithDefault(msg, 26, ""),
     lockTime: jspb.Message.getFieldWithDefault(msg, 27, 0),
     children: jspb.Message.getFieldWithDefault(msg, 28, 0),
-    childrenTotal: jspb.Message.getFieldWithDefault(msg, 29, 0)
+    childrenTotal: jspb.Message.getFieldWithDefault(msg, 29, 0),
+    top: jspb.Message.getFieldWithDefault(msg, 30, 0)
   };
 
   if (includeInstance) {
@@ -309,6 +310,10 @@ proto.services.FileInfo.deserializeBinaryFromReader = function(msg, reader) {
     case 29:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setChildrenTotal(value);
+      break;
+    case 30:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setTop(value);
       break;
     default:
       reader.skipField();
@@ -532,6 +537,13 @@ proto.services.FileInfo.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt64(
       29,
+      f
+    );
+  }
+  f = message.getTop();
+  if (f !== 0) {
+    writer.writeInt32(
+      30,
       f
     );
   }
@@ -1039,6 +1051,24 @@ proto.services.FileInfo.prototype.getChildrenTotal = function() {
  */
 proto.services.FileInfo.prototype.setChildrenTotal = function(value) {
   return jspb.Message.setProto3IntField(this, 29, value);
+};
+
+
+/**
+ * optional int32 top = 30;
+ * @return {number}
+ */
+proto.services.FileInfo.prototype.getTop = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 30, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.services.FileInfo} returns this
+ */
+proto.services.FileInfo.prototype.setTop = function(value) {
+  return jspb.Message.setProto3IntField(this, 30, value);
 };
 
 
