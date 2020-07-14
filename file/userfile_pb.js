@@ -429,7 +429,7 @@ proto.services.UserFile.deserializeBinaryFromReader = function(msg, reader) {
       msg.setUnlockTime(value);
       break;
     case 26:
-      var value = /** @type {number} */ (reader.readInt64());
+      var value = /** @type {number} */ (reader.readInt32());
       msg.setTop(value);
       break;
     default:
@@ -638,7 +638,7 @@ proto.services.UserFile.serializeBinaryToWriter = function(message, writer) {
   }
   f = message.getTop();
   if (f !== 0) {
-    writer.writeInt64(
+    writer.writeInt32(
       26,
       f
     );
@@ -1097,7 +1097,7 @@ proto.services.UserFile.prototype.setUnlockTime = function(value) {
 
 
 /**
- * optional int64 top = 26;
+ * optional int32 top = 26;
  * @return {number}
  */
 proto.services.UserFile.prototype.getTop = function() {
