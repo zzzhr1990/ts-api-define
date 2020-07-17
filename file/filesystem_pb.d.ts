@@ -29,6 +29,9 @@ export class FileInfo extends jspb.Message {
   getMime(): string;
   setMime(value: string): void;
 
+  getDeleted(): boolean;
+  setDeleted(value: boolean): void;
+
   getHidden(): boolean;
   setHidden(value: boolean): void;
 
@@ -112,6 +115,7 @@ export namespace FileInfo {
     ext: string,
     size: number,
     mime: string,
+    deleted: boolean,
     hidden: boolean,
     label: number,
     parent: string,
