@@ -254,3 +254,71 @@ export namespace FileInfoListRequest {
   }
 }
 
+export class TrashInfo extends jspb.Message {
+  getIdentity(): string;
+  setIdentity(value: string): void;
+
+  getUserIdentity(): number;
+  setUserIdentity(value: number): void;
+
+  getPath(): string;
+  setPath(value: string): void;
+
+  getPathIdentity(): string;
+  setPathIdentity(value: string): void;
+
+  getCreateTime(): number;
+  setCreateTime(value: number): void;
+
+  getName(): string;
+  setName(value: string): void;
+
+  getType(): number;
+  setType(value: number): void;
+
+  getMime(): string;
+  setMime(value: string): void;
+
+  getAddon(): string;
+  setAddon(value: string): void;
+
+  getLocking(): boolean;
+  setLocking(value: boolean): void;
+
+  getOp(): number;
+  setOp(value: number): void;
+
+  getSize(): number;
+  setSize(value: number): void;
+
+  getDirectory(): boolean;
+  setDirectory(value: boolean): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): TrashInfo.AsObject;
+  static toObject(includeInstance: boolean, msg: TrashInfo): TrashInfo.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: TrashInfo, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): TrashInfo;
+  static deserializeBinaryFromReader(message: TrashInfo, reader: jspb.BinaryReader): TrashInfo;
+}
+
+export namespace TrashInfo {
+  export type AsObject = {
+    identity: string,
+    userIdentity: number,
+    path: string,
+    pathIdentity: string,
+    createTime: number,
+    name: string,
+    type: number,
+    mime: string,
+    addon: string,
+    locking: boolean,
+    op: number,
+    size: number,
+    directory: boolean,
+  }
+}
+
