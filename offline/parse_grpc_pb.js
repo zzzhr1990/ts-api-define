@@ -1,6 +1,7 @@
 // GENERATED CODE -- DO NOT EDIT!
 
 'use strict';
+var grpc = require('@grpc/grpc-js');
 var offline_parse_pb = require('../offline/parse_pb.js');
 
 function serialize_services_ParseTaskRequest(arg) {
@@ -27,7 +28,7 @@ function deserialize_services_ParseTaskResponse(buffer_arg) {
 
 
 // import "common/common_entity.proto";
-var TaskParseServiceService = exports['services.TaskParseService'] = {
+var TaskParseServiceService = exports.TaskParseServiceService = {
   parse: {
     path: '/services.TaskParseService/parse',
     requestStream: false,
@@ -41,3 +42,4 @@ var TaskParseServiceService = exports['services.TaskParseService'] = {
   },
 };
 
+exports.TaskParseServiceClient = grpc.makeGenericClientConstructor(TaskParseServiceService);

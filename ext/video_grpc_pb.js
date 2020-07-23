@@ -1,6 +1,7 @@
 // GENERATED CODE -- DO NOT EDIT!
 
 'use strict';
+var grpc = require('@grpc/grpc-js');
 var ext_video_pb = require('../ext/video_pb.js');
 var common_common_entity_pb = require('../common/common_entity_pb.js');
 
@@ -38,7 +39,7 @@ function deserialize_services_VideoExt(buffer_arg) {
 }
 
 
-var VideoExtServiceService = exports['services.VideoExtService'] = {
+var VideoExtServiceService = exports.VideoExtServiceService = {
   create: {
     path: '/services.VideoExtService/create',
     requestStream: false,
@@ -96,3 +97,4 @@ var VideoExtServiceService = exports['services.VideoExtService'] = {
   },
 };
 
+exports.VideoExtServiceClient = grpc.makeGenericClientConstructor(VideoExtServiceService);

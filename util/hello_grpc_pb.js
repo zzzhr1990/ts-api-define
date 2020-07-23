@@ -1,6 +1,7 @@
 // GENERATED CODE -- DO NOT EDIT!
 
 'use strict';
+var grpc = require('@grpc/grpc-js');
 var util_hello_pb = require('../util/hello_pb.js');
 
 function serialize_services_HelloRequest(arg) {
@@ -26,7 +27,7 @@ function deserialize_services_HelloResponse(buffer_arg) {
 }
 
 
-var HelloServiceService = exports['services.HelloService'] = {
+var HelloServiceService = exports.HelloServiceService = {
   hello: {
     path: '/services.HelloService/hello',
     requestStream: false,
@@ -40,3 +41,4 @@ var HelloServiceService = exports['services.HelloService'] = {
   },
 };
 
+exports.HelloServiceClient = grpc.makeGenericClientConstructor(HelloServiceService);

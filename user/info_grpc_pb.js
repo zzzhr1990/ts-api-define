@@ -1,6 +1,7 @@
 // GENERATED CODE -- DO NOT EDIT!
 
 'use strict';
+var grpc = require('@grpc/grpc-js');
 var user_info_pb = require('../user/info_pb.js');
 
 function serialize_services_ChangePasswordRequest(arg) {
@@ -125,7 +126,7 @@ function deserialize_services_User(buffer_arg) {
 }
 
 
-var UserServiceService = exports['services.UserService'] = {
+var UserServiceService = exports.UserServiceService = {
   // 强行创建用户（仅后台使用）
 create: {
     path: '/services.UserService/Create',
@@ -389,3 +390,4 @@ bindThirdPartyLogin: {
   },
 };
 
+exports.UserServiceClient = grpc.makeGenericClientConstructor(UserServiceService);

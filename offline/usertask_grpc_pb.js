@@ -1,6 +1,7 @@
 // GENERATED CODE -- DO NOT EDIT!
 
 'use strict';
+var grpc = require('@grpc/grpc-js');
 var offline_usertask_pb = require('../offline/usertask_pb.js');
 var common_common_entity_pb = require('../common/common_entity_pb.js');
 
@@ -104,7 +105,7 @@ function deserialize_services_UserTaskList(buffer_arg) {
 }
 
 
-var UserTaskServiceService = exports['services.UserTaskService'] = {
+var UserTaskServiceService = exports.UserTaskServiceService = {
   // rpc create (UserOfflineTask) returns (UserOfflineTask) {}
 add: {
     path: '/services.UserTaskService/add',
@@ -242,3 +243,4 @@ list: {
   },
 };
 
+exports.UserTaskServiceClient = grpc.makeGenericClientConstructor(UserTaskServiceService);

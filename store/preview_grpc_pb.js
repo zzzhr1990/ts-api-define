@@ -1,6 +1,7 @@
 // GENERATED CODE -- DO NOT EDIT!
 
 'use strict';
+var grpc = require('@grpc/grpc-js');
 var store_preview_pb = require('../store/preview_pb.js');
 
 function serialize_services_MediaPreview(arg) {
@@ -16,7 +17,7 @@ function deserialize_services_MediaPreview(buffer_arg) {
 
 
 // import "common/common_entity.proto";
-var PreviewServiceService = exports['services.PreviewService'] = {
+var PreviewServiceService = exports.PreviewServiceService = {
   create: {
     path: '/services.PreviewService/Create',
     requestStream: false,
@@ -54,3 +55,4 @@ get: {
   },
 };
 
+exports.PreviewServiceClient = grpc.makeGenericClientConstructor(PreviewServiceService);

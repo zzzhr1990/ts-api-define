@@ -1,6 +1,7 @@
 // GENERATED CODE -- DO NOT EDIT!
 
 'use strict';
+var grpc = require('@grpc/grpc-js');
 var share_share_pb = require('../share/share_pb.js');
 var common_common_entity_pb = require('../common/common_entity_pb.js');
 
@@ -38,7 +39,7 @@ function deserialize_services_ShareSaveRequest(buffer_arg) {
 }
 
 
-var FileShareServiceService = exports['services.FileShareService'] = {
+var FileShareServiceService = exports.FileShareServiceService = {
   create: {
     path: '/services.FileShareService/create',
     requestStream: false,
@@ -85,3 +86,4 @@ var FileShareServiceService = exports['services.FileShareService'] = {
   },
 };
 
+exports.FileShareServiceClient = grpc.makeGenericClientConstructor(FileShareServiceService);

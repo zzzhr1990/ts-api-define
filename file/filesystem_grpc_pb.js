@@ -1,6 +1,7 @@
 // GENERATED CODE -- DO NOT EDIT!
 
 'use strict';
+var grpc = require('@grpc/grpc-js');
 var file_filesystem_pb = require('../file/filesystem_pb.js');
 var common_common_entity_pb = require('../common/common_entity_pb.js');
 
@@ -49,7 +50,7 @@ function deserialize_services_TaskProgress(buffer_arg) {
 }
 
 
-var FileServiceService = exports['services.FileService'] = {
+var FileServiceService = exports.FileServiceService = {
   create: {
     path: '/services.FileService/Create',
     requestStream: false,
@@ -129,7 +130,8 @@ var FileServiceService = exports['services.FileService'] = {
   },
 };
 
-var FileNoticeServiceService = exports['services.FileNoticeService'] = {
+exports.FileServiceClient = grpc.makeGenericClientConstructor(FileServiceService);
+var FileNoticeServiceService = exports.FileNoticeServiceService = {
   onProgress: {
     path: '/services.FileNoticeService/OnProgress',
     requestStream: false,
@@ -176,3 +178,4 @@ var FileNoticeServiceService = exports['services.FileNoticeService'] = {
   },
 };
 
+exports.FileNoticeServiceClient = grpc.makeGenericClientConstructor(FileNoticeServiceService);

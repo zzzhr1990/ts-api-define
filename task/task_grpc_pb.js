@@ -1,6 +1,7 @@
 // GENERATED CODE -- DO NOT EDIT!
 
 'use strict';
+var grpc = require('@grpc/grpc-js');
 var task_task_pb = require('../task/task_pb.js');
 var common_common_entity_pb = require('../common/common_entity_pb.js');
 
@@ -60,7 +61,7 @@ function deserialize_services_SimpleTask(buffer_arg) {
 }
 
 
-var SimpleTaskCenterServiceService = exports['services.SimpleTaskCenterService'] = {
+var SimpleTaskCenterServiceService = exports.SimpleTaskCenterServiceService = {
   create: {
     path: '/services.SimpleTaskCenterService/create',
     requestStream: false,
@@ -142,3 +143,4 @@ get: {
   },
 };
 
+exports.SimpleTaskCenterServiceClient = grpc.makeGenericClientConstructor(SimpleTaskCenterServiceService);

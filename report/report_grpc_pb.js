@@ -1,6 +1,7 @@
 // GENERATED CODE -- DO NOT EDIT!
 
 'use strict';
+var grpc = require('@grpc/grpc-js');
 var report_report_pb = require('../report/report_pb.js');
 
 function serialize_services_Report(arg) {
@@ -15,7 +16,7 @@ function deserialize_services_Report(buffer_arg) {
 }
 
 
-var ReportServiceService = exports['services.ReportService'] = {
+var ReportServiceService = exports.ReportServiceService = {
   create: {
     path: '/services.ReportService/create',
     requestStream: false,
@@ -40,3 +41,4 @@ var ReportServiceService = exports['services.ReportService'] = {
   },
 };
 
+exports.ReportServiceClient = grpc.makeGenericClientConstructor(ReportServiceService);
