@@ -47,6 +47,7 @@ interface IFileNoticeServiceService extends grpc.ServiceDefinition<grpc.UntypedS
   onProgress: grpc.MethodDefinition<file_filesystem_pb.TaskProgress, file_filesystem_pb.TaskProgress>;
   onComplete: grpc.MethodDefinition<file_filesystem_pb.TaskProgress, file_filesystem_pb.TaskProgress>;
   onError: grpc.MethodDefinition<file_filesystem_pb.TaskProgress, file_filesystem_pb.TaskProgress>;
+  onCancel: grpc.MethodDefinition<file_filesystem_pb.TaskProgress, file_filesystem_pb.TaskProgress>;
 }
 
 export const FileNoticeServiceService: IFileNoticeServiceService;
@@ -62,4 +63,7 @@ export class FileNoticeServiceClient extends grpc.Client {
   onError(argument: file_filesystem_pb.TaskProgress, callback: grpc.requestCallback<file_filesystem_pb.TaskProgress>): grpc.ClientUnaryCall;
   onError(argument: file_filesystem_pb.TaskProgress, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<file_filesystem_pb.TaskProgress>): grpc.ClientUnaryCall;
   onError(argument: file_filesystem_pb.TaskProgress, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<file_filesystem_pb.TaskProgress>): grpc.ClientUnaryCall;
+  onCancel(argument: file_filesystem_pb.TaskProgress, callback: grpc.requestCallback<file_filesystem_pb.TaskProgress>): grpc.ClientUnaryCall;
+  onCancel(argument: file_filesystem_pb.TaskProgress, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<file_filesystem_pb.TaskProgress>): grpc.ClientUnaryCall;
+  onCancel(argument: file_filesystem_pb.TaskProgress, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<file_filesystem_pb.TaskProgress>): grpc.ClientUnaryCall;
 }

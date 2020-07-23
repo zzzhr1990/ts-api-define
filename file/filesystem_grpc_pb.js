@@ -165,6 +165,17 @@ var FileNoticeServiceService = exports.FileNoticeServiceService = {
     responseSerialize: serialize_services_TaskProgress,
     responseDeserialize: deserialize_services_TaskProgress,
   },
+  onCancel: {
+    path: '/services.FileNoticeService/OnCancel',
+    requestStream: false,
+    responseStream: false,
+    requestType: file_filesystem_pb.TaskProgress,
+    responseType: file_filesystem_pb.TaskProgress,
+    requestSerialize: serialize_services_TaskProgress,
+    requestDeserialize: deserialize_services_TaskProgress,
+    responseSerialize: serialize_services_TaskProgress,
+    responseDeserialize: deserialize_services_TaskProgress,
+  },
 };
 
 exports.FileNoticeServiceClient = grpc.makeGenericClientConstructor(FileNoticeServiceService);
