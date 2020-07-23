@@ -1,7 +1,6 @@
 // GENERATED CODE -- DO NOT EDIT!
 
 'use strict';
-var grpc = require('@grpc/grpc-js');
 var store_cloudstore_pb = require('../store/cloudstore_pb.js');
 var common_common_entity_pb = require('../common/common_entity_pb.js');
 
@@ -61,7 +60,7 @@ function deserialize_services_WcsUploadToken(buffer_arg) {
 }
 
 
-var CloudStoreServiceService = exports.CloudStoreServiceService = {
+var CloudStoreServiceService = exports['services.CloudStoreService'] = {
   create: {
     path: '/services.CloudStoreService/Create',
     requestStream: false,
@@ -154,4 +153,3 @@ get: {
   },
 };
 
-exports.CloudStoreServiceClient = grpc.makeGenericClientConstructor(CloudStoreServiceService);

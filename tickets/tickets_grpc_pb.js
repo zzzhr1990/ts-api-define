@@ -1,7 +1,6 @@
 // GENERATED CODE -- DO NOT EDIT!
 
 'use strict';
-var grpc = require('@grpc/grpc-js');
 var tickets_tickets_pb = require('../tickets/tickets_pb.js');
 var common_common_entity_pb = require('../common/common_entity_pb.js');
 
@@ -72,7 +71,7 @@ function deserialize_services_TicketListResponse(buffer_arg) {
 }
 
 
-var TicketsServiceService = exports.TicketsServiceService = {
+var TicketsServiceService = exports['services.TicketsService'] = {
   create: {
     path: '/services.TicketsService/Create',
     requestStream: false,
@@ -174,4 +173,3 @@ var TicketsServiceService = exports.TicketsServiceService = {
   },
 };
 
-exports.TicketsServiceClient = grpc.makeGenericClientConstructor(TicketsServiceService);

@@ -1,7 +1,6 @@
 // GENERATED CODE -- DO NOT EDIT!
 
 'use strict';
-var grpc = require('@grpc/grpc-js');
 var file_filetask_pb = require('../file/filetask_pb.js');
 
 function serialize_services_FileTask(arg) {
@@ -27,7 +26,7 @@ function deserialize_services_FileTaskListResponse(buffer_arg) {
 }
 
 
-var FileTaskServiceService = exports.FileTaskServiceService = {
+var FileTaskServiceService = exports['services.FileTaskService'] = {
   create: {
     path: '/services.FileTaskService/Create',
     requestStream: false,
@@ -52,4 +51,3 @@ var FileTaskServiceService = exports.FileTaskServiceService = {
   },
 };
 
-exports.FileTaskServiceClient = grpc.makeGenericClientConstructor(FileTaskServiceService);

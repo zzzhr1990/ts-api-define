@@ -1,7 +1,6 @@
 // GENERATED CODE -- DO NOT EDIT!
 
 'use strict';
-var grpc = require('@grpc/grpc-js');
 var system_system_pb = require('../system/system_pb.js');
 
 function serialize_services_ClientInfo(arg) {
@@ -49,7 +48,7 @@ function deserialize_services_UpdateInfoList(buffer_arg) {
 }
 
 
-var SystemInfoServiceService = exports.SystemInfoServiceService = {
+var SystemInfoServiceService = exports['services.SystemInfoService'] = {
   info: {
     path: '/services.SystemInfoService/info',
     requestStream: false,
@@ -74,4 +73,3 @@ var SystemInfoServiceService = exports.SystemInfoServiceService = {
   },
 };
 
-exports.SystemInfoServiceClient = grpc.makeGenericClientConstructor(SystemInfoServiceService);

@@ -1,7 +1,6 @@
 // GENERATED CODE -- DO NOT EDIT!
 
 'use strict';
-var grpc = require('@grpc/grpc-js');
 var bill_bill_pb = require('../bill/bill_pb.js');
 var common_common_entity_pb = require('../common/common_entity_pb.js');
 
@@ -61,7 +60,7 @@ function deserialize_services_PlanListResponse(buffer_arg) {
 }
 
 
-var OrderServiceService = exports.OrderServiceService = {
+var OrderServiceService = exports['services.OrderService'] = {
   // Create bill（仅后台使用）
 create: {
     path: '/services.OrderService/Create',
@@ -153,4 +152,3 @@ create: {
   },
 };
 
-exports.OrderServiceClient = grpc.makeGenericClientConstructor(OrderServiceService);

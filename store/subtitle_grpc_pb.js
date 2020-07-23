@@ -1,7 +1,6 @@
 // GENERATED CODE -- DO NOT EDIT!
 
 'use strict';
-var grpc = require('@grpc/grpc-js');
 var store_subtitle_pb = require('../store/subtitle_pb.js');
 
 function serialize_services_Subtitle(arg) {
@@ -28,7 +27,7 @@ function deserialize_services_SubtitleListResponse(buffer_arg) {
 
 
 // import "common/common_entity.proto";
-var SubtitleServiceService = exports.SubtitleServiceService = {
+var SubtitleServiceService = exports['services.SubtitleService'] = {
   create: {
     path: '/services.SubtitleService/Create',
     requestStream: false,
@@ -77,4 +76,3 @@ get: {
   },
 };
 
-exports.SubtitleServiceClient = grpc.makeGenericClientConstructor(SubtitleServiceService);
