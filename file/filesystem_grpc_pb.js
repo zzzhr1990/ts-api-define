@@ -60,6 +60,17 @@ function deserialize_services_FileInfoListResponse(buffer_arg) {
   return file_filesystem_pb.FileInfoListResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_services_TaskCompleteEvent(arg) {
+  if (!(arg instanceof file_filesystem_pb.TaskCompleteEvent)) {
+    throw new Error('Expected argument of type services.TaskCompleteEvent');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_services_TaskCompleteEvent(buffer_arg) {
+  return file_filesystem_pb.TaskCompleteEvent.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_services_TaskProgress(arg) {
   if (!(arg instanceof file_filesystem_pb.TaskProgress)) {
     throw new Error('Expected argument of type services.TaskProgress');
@@ -69,6 +80,17 @@ function serialize_services_TaskProgress(arg) {
 
 function deserialize_services_TaskProgress(buffer_arg) {
   return file_filesystem_pb.TaskProgress.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_services_TaskStatusUpdateEvent(arg) {
+  if (!(arg instanceof file_filesystem_pb.TaskStatusUpdateEvent)) {
+    throw new Error('Expected argument of type services.TaskStatusUpdateEvent');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_services_TaskStatusUpdateEvent(buffer_arg) {
+  return file_filesystem_pb.TaskStatusUpdateEvent.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 
@@ -155,10 +177,10 @@ list: {
     path: '/services.FileService/Rename',
     requestStream: false,
     responseStream: false,
-    requestType: file_filesystem_pb.BatchFileTaskRequest,
+    requestType: file_filesystem_pb.FileInfo,
     responseType: file_filesystem_pb.BatchFileTaskResult,
-    requestSerialize: serialize_services_BatchFileTaskRequest,
-    requestDeserialize: deserialize_services_BatchFileTaskRequest,
+    requestSerialize: serialize_services_FileInfo,
+    requestDeserialize: deserialize_services_FileInfo,
     responseSerialize: serialize_services_BatchFileTaskResult,
     responseDeserialize: deserialize_services_BatchFileTaskResult,
   },
@@ -181,34 +203,34 @@ var FileNoticeServiceService = exports.FileNoticeServiceService = {
     path: '/services.FileNoticeService/OnComplete',
     requestStream: false,
     responseStream: false,
-    requestType: file_filesystem_pb.TaskProgress,
-    responseType: file_filesystem_pb.TaskProgress,
-    requestSerialize: serialize_services_TaskProgress,
-    requestDeserialize: deserialize_services_TaskProgress,
-    responseSerialize: serialize_services_TaskProgress,
-    responseDeserialize: deserialize_services_TaskProgress,
+    requestType: file_filesystem_pb.TaskCompleteEvent,
+    responseType: file_filesystem_pb.TaskCompleteEvent,
+    requestSerialize: serialize_services_TaskCompleteEvent,
+    requestDeserialize: deserialize_services_TaskCompleteEvent,
+    responseSerialize: serialize_services_TaskCompleteEvent,
+    responseDeserialize: deserialize_services_TaskCompleteEvent,
   },
   onError: {
     path: '/services.FileNoticeService/OnError',
     requestStream: false,
     responseStream: false,
-    requestType: file_filesystem_pb.TaskProgress,
-    responseType: file_filesystem_pb.TaskProgress,
-    requestSerialize: serialize_services_TaskProgress,
-    requestDeserialize: deserialize_services_TaskProgress,
-    responseSerialize: serialize_services_TaskProgress,
-    responseDeserialize: deserialize_services_TaskProgress,
+    requestType: file_filesystem_pb.TaskStatusUpdateEvent,
+    responseType: file_filesystem_pb.TaskStatusUpdateEvent,
+    requestSerialize: serialize_services_TaskStatusUpdateEvent,
+    requestDeserialize: deserialize_services_TaskStatusUpdateEvent,
+    responseSerialize: serialize_services_TaskStatusUpdateEvent,
+    responseDeserialize: deserialize_services_TaskStatusUpdateEvent,
   },
   onCancel: {
     path: '/services.FileNoticeService/OnCancel',
     requestStream: false,
     responseStream: false,
-    requestType: file_filesystem_pb.TaskProgress,
-    responseType: file_filesystem_pb.TaskProgress,
-    requestSerialize: serialize_services_TaskProgress,
-    requestDeserialize: deserialize_services_TaskProgress,
-    responseSerialize: serialize_services_TaskProgress,
-    responseDeserialize: deserialize_services_TaskProgress,
+    requestType: file_filesystem_pb.TaskStatusUpdateEvent,
+    responseType: file_filesystem_pb.TaskStatusUpdateEvent,
+    requestSerialize: serialize_services_TaskStatusUpdateEvent,
+    requestDeserialize: deserialize_services_TaskStatusUpdateEvent,
+    responseSerialize: serialize_services_TaskStatusUpdateEvent,
+    responseDeserialize: deserialize_services_TaskStatusUpdateEvent,
   },
 };
 

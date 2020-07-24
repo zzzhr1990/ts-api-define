@@ -29,20 +29,20 @@ export class TaskProgress extends jspb.Message {
     getCount(): number;
     setCount(value: number): TaskProgress;
 
-    getSource(): string;
-    setSource(value: string): TaskProgress;
 
-    getDestination(): string;
-    setDestination(value: string): TaskProgress;
+    hasSource(): boolean;
+    clearSource(): void;
+    getSource(): FileInfo | undefined;
+    setSource(value?: FileInfo): TaskProgress;
+
+
+    hasDestination(): boolean;
+    clearDestination(): void;
+    getDestination(): FileInfo | undefined;
+    setDestination(value?: FileInfo): TaskProgress;
 
     getStatus(): number;
     setStatus(value: number): TaskProgress;
-
-    getErrorCode(): number;
-    setErrorCode(value: number): TaskProgress;
-
-    getErrorMessage(): string;
-    setErrorMessage(value: string): TaskProgress;
 
     getAction(): string;
     setAction(value: string): TaskProgress;
@@ -67,8 +67,140 @@ export namespace TaskProgress {
         progress: number,
         size: number,
         count: number,
-        source: string,
-        destination: string,
+        source?: FileInfo.AsObject,
+        destination?: FileInfo.AsObject,
+        status: number,
+        action: string,
+    }
+}
+
+export class TaskCompleteEvent extends jspb.Message { 
+    getIdentity(): string;
+    setIdentity(value: string): TaskCompleteEvent;
+
+    getUserIdentity(): number;
+    setUserIdentity(value: number): TaskCompleteEvent;
+
+    getType(): number;
+    setType(value: number): TaskCompleteEvent;
+
+    getName(): string;
+    setName(value: string): TaskCompleteEvent;
+
+
+    hasSource(): boolean;
+    clearSource(): void;
+    getSource(): FileInfo | undefined;
+    setSource(value?: FileInfo): TaskCompleteEvent;
+
+
+    hasDestination(): boolean;
+    clearDestination(): void;
+    getDestination(): FileInfo | undefined;
+    setDestination(value?: FileInfo): TaskCompleteEvent;
+
+    getCount(): number;
+    setCount(value: number): TaskCompleteEvent;
+
+    getStatus(): number;
+    setStatus(value: number): TaskCompleteEvent;
+
+    getErrorCode(): number;
+    setErrorCode(value: number): TaskCompleteEvent;
+
+    getErrorMessage(): string;
+    setErrorMessage(value: string): TaskCompleteEvent;
+
+    getAction(): string;
+    setAction(value: string): TaskCompleteEvent;
+
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): TaskCompleteEvent.AsObject;
+    static toObject(includeInstance: boolean, msg: TaskCompleteEvent): TaskCompleteEvent.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: TaskCompleteEvent, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): TaskCompleteEvent;
+    static deserializeBinaryFromReader(message: TaskCompleteEvent, reader: jspb.BinaryReader): TaskCompleteEvent;
+}
+
+export namespace TaskCompleteEvent {
+    export type AsObject = {
+        identity: string,
+        userIdentity: number,
+        type: number,
+        name: string,
+        source?: FileInfo.AsObject,
+        destination?: FileInfo.AsObject,
+        count: number,
+        status: number,
+        errorCode: number,
+        errorMessage: string,
+        action: string,
+    }
+}
+
+export class TaskStatusUpdateEvent extends jspb.Message { 
+    getIdentity(): string;
+    setIdentity(value: string): TaskStatusUpdateEvent;
+
+    getUserIdentity(): number;
+    setUserIdentity(value: number): TaskStatusUpdateEvent;
+
+    getType(): number;
+    setType(value: number): TaskStatusUpdateEvent;
+
+    getName(): string;
+    setName(value: string): TaskStatusUpdateEvent;
+
+
+    hasSource(): boolean;
+    clearSource(): void;
+    getSource(): FileInfo | undefined;
+    setSource(value?: FileInfo): TaskStatusUpdateEvent;
+
+
+    hasDestination(): boolean;
+    clearDestination(): void;
+    getDestination(): FileInfo | undefined;
+    setDestination(value?: FileInfo): TaskStatusUpdateEvent;
+
+    getCount(): number;
+    setCount(value: number): TaskStatusUpdateEvent;
+
+    getStatus(): number;
+    setStatus(value: number): TaskStatusUpdateEvent;
+
+    getErrorCode(): number;
+    setErrorCode(value: number): TaskStatusUpdateEvent;
+
+    getErrorMessage(): string;
+    setErrorMessage(value: string): TaskStatusUpdateEvent;
+
+    getAction(): string;
+    setAction(value: string): TaskStatusUpdateEvent;
+
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): TaskStatusUpdateEvent.AsObject;
+    static toObject(includeInstance: boolean, msg: TaskStatusUpdateEvent): TaskStatusUpdateEvent.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: TaskStatusUpdateEvent, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): TaskStatusUpdateEvent;
+    static deserializeBinaryFromReader(message: TaskStatusUpdateEvent, reader: jspb.BinaryReader): TaskStatusUpdateEvent;
+}
+
+export namespace TaskStatusUpdateEvent {
+    export type AsObject = {
+        identity: string,
+        userIdentity: number,
+        type: number,
+        name: string,
+        source?: FileInfo.AsObject,
+        destination?: FileInfo.AsObject,
+        count: number,
         status: number,
         errorCode: number,
         errorMessage: string,
