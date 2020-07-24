@@ -93,6 +93,28 @@ function deserialize_services_TaskStatusUpdateEvent(buffer_arg) {
   return file_filesystem_pb.TaskStatusUpdateEvent.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_services_TrashInfo(arg) {
+  if (!(arg instanceof file_filesystem_pb.TrashInfo)) {
+    throw new Error('Expected argument of type services.TrashInfo');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_services_TrashInfo(buffer_arg) {
+  return file_filesystem_pb.TrashInfo.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_services_TrashInfoListResponse(arg) {
+  if (!(arg instanceof file_filesystem_pb.TrashInfoListResponse)) {
+    throw new Error('Expected argument of type services.TrashInfoListResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_services_TrashInfoListResponse(buffer_arg) {
+  return file_filesystem_pb.TrashInfoListResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 
 var FileServiceService = exports.FileServiceService = {
   create: {
@@ -181,6 +203,63 @@ list: {
     responseType: file_filesystem_pb.BatchFileTaskResult,
     requestSerialize: serialize_services_FileInfo,
     requestDeserialize: deserialize_services_FileInfo,
+    responseSerialize: serialize_services_BatchFileTaskResult,
+    responseDeserialize: deserialize_services_BatchFileTaskResult,
+  },
+  // rpc FlushStore (UserFile) returns (UserFile) {}
+// 
+recover: {
+    path: '/services.FileService/Recover',
+    requestStream: false,
+    responseStream: false,
+    requestType: file_filesystem_pb.BatchFileTaskRequest,
+    responseType: file_filesystem_pb.BatchFileTaskResult,
+    requestSerialize: serialize_services_BatchFileTaskRequest,
+    requestDeserialize: deserialize_services_BatchFileTaskRequest,
+    responseSerialize: serialize_services_BatchFileTaskResult,
+    responseDeserialize: deserialize_services_BatchFileTaskResult,
+  },
+  deleteTrash: {
+    path: '/services.FileService/DeleteTrash',
+    requestStream: false,
+    responseStream: false,
+    requestType: file_filesystem_pb.BatchFileTaskRequest,
+    responseType: file_filesystem_pb.BatchFileTaskResult,
+    requestSerialize: serialize_services_BatchFileTaskRequest,
+    requestDeserialize: deserialize_services_BatchFileTaskRequest,
+    responseSerialize: serialize_services_BatchFileTaskResult,
+    responseDeserialize: deserialize_services_BatchFileTaskResult,
+  },
+  listTrash: {
+    path: '/services.FileService/ListTrash',
+    requestStream: false,
+    responseStream: false,
+    requestType: file_filesystem_pb.FileInfoListRequest,
+    responseType: file_filesystem_pb.TrashInfoListResponse,
+    requestSerialize: serialize_services_FileInfoListRequest,
+    requestDeserialize: deserialize_services_FileInfoListRequest,
+    responseSerialize: serialize_services_TrashInfoListResponse,
+    responseDeserialize: deserialize_services_TrashInfoListResponse,
+  },
+  getTrash: {
+    path: '/services.FileService/GetTrash',
+    requestStream: false,
+    responseStream: false,
+    requestType: file_filesystem_pb.TrashInfo,
+    responseType: file_filesystem_pb.TrashInfo,
+    requestSerialize: serialize_services_TrashInfo,
+    requestDeserialize: deserialize_services_TrashInfo,
+    responseSerialize: serialize_services_TrashInfo,
+    responseDeserialize: deserialize_services_TrashInfo,
+  },
+  clearTrash: {
+    path: '/services.FileService/ClearTrash',
+    requestStream: false,
+    responseStream: false,
+    requestType: file_filesystem_pb.TrashInfo,
+    responseType: file_filesystem_pb.BatchFileTaskResult,
+    requestSerialize: serialize_services_TrashInfo,
+    requestDeserialize: deserialize_services_TrashInfo,
     responseSerialize: serialize_services_BatchFileTaskResult,
     responseDeserialize: deserialize_services_BatchFileTaskResult,
   },
