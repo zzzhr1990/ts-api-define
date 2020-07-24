@@ -27,6 +27,17 @@ function deserialize_services_BatchFileTaskResult(buffer_arg) {
   return file_filesystem_pb.BatchFileTaskResult.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_services_BatchLabelRequest(arg) {
+  if (!(arg instanceof file_filesystem_pb.BatchLabelRequest)) {
+    throw new Error('Expected argument of type services.BatchLabelRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_services_BatchLabelRequest(buffer_arg) {
+  return file_filesystem_pb.BatchLabelRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_services_FileInfo(arg) {
   if (!(arg instanceof file_filesystem_pb.FileInfo)) {
     throw new Error('Expected argument of type services.FileInfo');
@@ -58,6 +69,17 @@ function serialize_services_FileInfoListResponse(arg) {
 
 function deserialize_services_FileInfoListResponse(buffer_arg) {
   return file_filesystem_pb.FileInfoListResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_services_Label(arg) {
+  if (!(arg instanceof file_filesystem_pb.Label)) {
+    throw new Error('Expected argument of type services.Label');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_services_Label(buffer_arg) {
+  return file_filesystem_pb.Label.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_services_TaskCompleteEvent(arg) {
@@ -260,6 +282,29 @@ recover: {
     responseType: file_filesystem_pb.BatchFileTaskResult,
     requestSerialize: serialize_services_TrashInfo,
     requestDeserialize: deserialize_services_TrashInfo,
+    responseSerialize: serialize_services_BatchFileTaskResult,
+    responseDeserialize: deserialize_services_BatchFileTaskResult,
+  },
+  // Label
+createLabel: {
+    path: '/services.FileService/CreateLabel',
+    requestStream: false,
+    responseStream: false,
+    requestType: file_filesystem_pb.Label,
+    responseType: file_filesystem_pb.Label,
+    requestSerialize: serialize_services_Label,
+    requestDeserialize: deserialize_services_Label,
+    responseSerialize: serialize_services_Label,
+    responseDeserialize: deserialize_services_Label,
+  },
+  deleteLabel: {
+    path: '/services.FileService/DeleteLabel',
+    requestStream: false,
+    responseStream: false,
+    requestType: file_filesystem_pb.BatchLabelRequest,
+    responseType: file_filesystem_pb.BatchFileTaskResult,
+    requestSerialize: serialize_services_BatchLabelRequest,
+    requestDeserialize: deserialize_services_BatchLabelRequest,
     responseSerialize: serialize_services_BatchFileTaskResult,
     responseDeserialize: deserialize_services_BatchFileTaskResult,
   },

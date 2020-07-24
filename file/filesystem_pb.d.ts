@@ -546,6 +546,37 @@ export namespace BatchFileTaskRequest {
     }
 }
 
+export class BatchLabelRequest extends jspb.Message { 
+    clearIdentityList(): void;
+    getIdentityList(): Array<number>;
+    setIdentityList(value: Array<number>): BatchLabelRequest;
+    addIdentity(value: number, index?: number): number;
+
+    getUserIdentity(): number;
+    setUserIdentity(value: number): BatchLabelRequest;
+
+    getOp(): number;
+    setOp(value: number): BatchLabelRequest;
+
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): BatchLabelRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: BatchLabelRequest): BatchLabelRequest.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: BatchLabelRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): BatchLabelRequest;
+    static deserializeBinaryFromReader(message: BatchLabelRequest, reader: jspb.BinaryReader): BatchLabelRequest;
+}
+
+export namespace BatchLabelRequest {
+    export type AsObject = {
+        identityList: Array<number>,
+        userIdentity: number,
+        op: number,
+    }
+}
+
 export class BatchFileTaskResult extends jspb.Message { 
     getIdentity(): string;
     setIdentity(value: string): BatchFileTaskResult;
