@@ -299,6 +299,17 @@ clear: {
     responseSerialize: serialize_services_TaskLog,
     responseDeserialize: deserialize_services_TaskLog,
   },
+  getLog: {
+    path: '/services.UserTaskService/getLog',
+    requestStream: false,
+    responseStream: false,
+    requestType: offline_usertask_pb.TaskLog,
+    responseType: offline_usertask_pb.TaskLog,
+    requestSerialize: serialize_services_TaskLog,
+    requestDeserialize: deserialize_services_TaskLog,
+    responseSerialize: serialize_services_TaskLog,
+    responseDeserialize: deserialize_services_TaskLog,
+  },
   deleteLog: {
     path: '/services.UserTaskService/deleteLog',
     requestStream: false,

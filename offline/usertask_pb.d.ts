@@ -126,6 +126,9 @@ export class UserTask extends jspb.Message {
     getKind(): number;
     setKind(value: number): UserTask;
 
+    getAddon(): string;
+    setAddon(value: string): UserTask;
+
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): UserTask.AsObject;
@@ -164,6 +167,7 @@ export namespace UserTask {
         username: string,
         password: string,
         kind: number,
+        addon: string,
     }
 }
 
@@ -234,6 +238,12 @@ export class TaskLog extends jspb.Message {
     getPassword(): string;
     setPassword(value: string): TaskLog;
 
+    getDevice(): string;
+    setDevice(value: string): TaskLog;
+
+    getApp(): string;
+    setApp(value: string): TaskLog;
+
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): TaskLog.AsObject;
@@ -260,6 +270,8 @@ export namespace TaskLog {
         op: number,
         username: string,
         password: string,
+        device: string,
+        app: string,
     }
 }
 

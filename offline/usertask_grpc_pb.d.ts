@@ -23,6 +23,7 @@ interface IUserTaskServiceService extends grpc.ServiceDefinition<grpc.UntypedSer
     deleteAllListener: IUserTaskServiceService_IdeleteAllListener;
     clear: IUserTaskServiceService_Iclear;
     updateLog: IUserTaskServiceService_IupdateLog;
+    getLog: IUserTaskServiceService_IgetLog;
     deleteLog: IUserTaskServiceService_IdeleteLog;
     clearLog: IUserTaskServiceService_IclearLog;
     listLog: IUserTaskServiceService_IlistLog;
@@ -146,6 +147,15 @@ interface IUserTaskServiceService_IupdateLog extends grpc.MethodDefinition<offli
     responseSerialize: grpc.serialize<offline_usertask_pb.TaskLog>;
     responseDeserialize: grpc.deserialize<offline_usertask_pb.TaskLog>;
 }
+interface IUserTaskServiceService_IgetLog extends grpc.MethodDefinition<offline_usertask_pb.TaskLog, offline_usertask_pb.TaskLog> {
+    path: string; // "/services.UserTaskService/getLog"
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<offline_usertask_pb.TaskLog>;
+    requestDeserialize: grpc.deserialize<offline_usertask_pb.TaskLog>;
+    responseSerialize: grpc.serialize<offline_usertask_pb.TaskLog>;
+    responseDeserialize: grpc.deserialize<offline_usertask_pb.TaskLog>;
+}
 interface IUserTaskServiceService_IdeleteLog extends grpc.MethodDefinition<offline_usertask_pb.DeleteTaskLogRequest, common_common_entity_pb.Int64Entity> {
     path: string; // "/services.UserTaskService/deleteLog"
     requestStream: false;
@@ -199,6 +209,7 @@ export interface IUserTaskServiceServer {
     deleteAllListener: grpc.handleUnaryCall<offline_usertask_pb.TaskListener, common_common_entity_pb.Int64Entity>;
     clear: grpc.handleUnaryCall<offline_usertask_pb.ClearTaskRequest, common_common_entity_pb.Int64Entity>;
     updateLog: grpc.handleUnaryCall<offline_usertask_pb.TaskLog, offline_usertask_pb.TaskLog>;
+    getLog: grpc.handleUnaryCall<offline_usertask_pb.TaskLog, offline_usertask_pb.TaskLog>;
     deleteLog: grpc.handleUnaryCall<offline_usertask_pb.DeleteTaskLogRequest, common_common_entity_pb.Int64Entity>;
     clearLog: grpc.handleUnaryCall<offline_usertask_pb.TaskLog, offline_usertask_pb.TaskLog>;
     listLog: grpc.handleUnaryCall<offline_usertask_pb.ListTaskLogRequest, offline_usertask_pb.TaskLogList>;
@@ -245,6 +256,9 @@ export interface IUserTaskServiceClient {
     updateLog(request: offline_usertask_pb.TaskLog, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.TaskLog) => void): grpc.ClientUnaryCall;
     updateLog(request: offline_usertask_pb.TaskLog, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.TaskLog) => void): grpc.ClientUnaryCall;
     updateLog(request: offline_usertask_pb.TaskLog, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.TaskLog) => void): grpc.ClientUnaryCall;
+    getLog(request: offline_usertask_pb.TaskLog, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.TaskLog) => void): grpc.ClientUnaryCall;
+    getLog(request: offline_usertask_pb.TaskLog, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.TaskLog) => void): grpc.ClientUnaryCall;
+    getLog(request: offline_usertask_pb.TaskLog, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.TaskLog) => void): grpc.ClientUnaryCall;
     deleteLog(request: offline_usertask_pb.DeleteTaskLogRequest, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.Int64Entity) => void): grpc.ClientUnaryCall;
     deleteLog(request: offline_usertask_pb.DeleteTaskLogRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.Int64Entity) => void): grpc.ClientUnaryCall;
     deleteLog(request: offline_usertask_pb.DeleteTaskLogRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.Int64Entity) => void): grpc.ClientUnaryCall;
@@ -300,6 +314,9 @@ export class UserTaskServiceClient extends grpc.Client implements IUserTaskServi
     public updateLog(request: offline_usertask_pb.TaskLog, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.TaskLog) => void): grpc.ClientUnaryCall;
     public updateLog(request: offline_usertask_pb.TaskLog, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.TaskLog) => void): grpc.ClientUnaryCall;
     public updateLog(request: offline_usertask_pb.TaskLog, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.TaskLog) => void): grpc.ClientUnaryCall;
+    public getLog(request: offline_usertask_pb.TaskLog, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.TaskLog) => void): grpc.ClientUnaryCall;
+    public getLog(request: offline_usertask_pb.TaskLog, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.TaskLog) => void): grpc.ClientUnaryCall;
+    public getLog(request: offline_usertask_pb.TaskLog, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: offline_usertask_pb.TaskLog) => void): grpc.ClientUnaryCall;
     public deleteLog(request: offline_usertask_pb.DeleteTaskLogRequest, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.Int64Entity) => void): grpc.ClientUnaryCall;
     public deleteLog(request: offline_usertask_pb.DeleteTaskLogRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.Int64Entity) => void): grpc.ClientUnaryCall;
     public deleteLog(request: offline_usertask_pb.DeleteTaskLogRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.Int64Entity) => void): grpc.ClientUnaryCall;

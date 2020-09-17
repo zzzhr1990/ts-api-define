@@ -666,7 +666,8 @@ proto.services.UserTask.toObject = function(includeInstance, msg) {
     op: jspb.Message.getFieldWithDefault(msg, 22, 0),
     username: jspb.Message.getFieldWithDefault(msg, 23, ""),
     password: jspb.Message.getFieldWithDefault(msg, 24, ""),
-    kind: jspb.Message.getFieldWithDefault(msg, 25, 0)
+    kind: jspb.Message.getFieldWithDefault(msg, 25, 0),
+    addon: jspb.Message.getFieldWithDefault(msg, 26, "")
   };
 
   if (includeInstance) {
@@ -802,6 +803,10 @@ proto.services.UserTask.deserializeBinaryFromReader = function(msg, reader) {
     case 25:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setKind(value);
+      break;
+    case 26:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setAddon(value);
       break;
     default:
       reader.skipField();
@@ -1004,6 +1009,13 @@ proto.services.UserTask.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt32(
       25,
+      f
+    );
+  }
+  f = message.getAddon();
+  if (f.length > 0) {
+    writer.writeString(
+      26,
       f
     );
   }
@@ -1460,6 +1472,24 @@ proto.services.UserTask.prototype.setKind = function(value) {
 };
 
 
+/**
+ * optional string addon = 26;
+ * @return {string}
+ */
+proto.services.UserTask.prototype.getAddon = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 26, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.services.UserTask} returns this
+ */
+proto.services.UserTask.prototype.setAddon = function(value) {
+  return jspb.Message.setProto3StringField(this, 26, value);
+};
+
+
 
 /**
  * List of repeated fields within this message type.
@@ -1690,7 +1720,9 @@ proto.services.TaskLog.toObject = function(includeInstance, msg) {
     fileHash: jspb.Message.getFieldWithDefault(msg, 10, ""),
     op: jspb.Message.getFieldWithDefault(msg, 11, 0),
     username: jspb.Message.getFieldWithDefault(msg, 12, ""),
-    password: jspb.Message.getFieldWithDefault(msg, 13, "")
+    password: jspb.Message.getFieldWithDefault(msg, 13, ""),
+    device: jspb.Message.getFieldWithDefault(msg, 14, ""),
+    app: jspb.Message.getFieldWithDefault(msg, 15, "")
   };
 
   if (includeInstance) {
@@ -1778,6 +1810,14 @@ proto.services.TaskLog.deserializeBinaryFromReader = function(msg, reader) {
     case 13:
       var value = /** @type {string} */ (reader.readString());
       msg.setPassword(value);
+      break;
+    case 14:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setDevice(value);
+      break;
+    case 15:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setApp(value);
       break;
     default:
       reader.skipField();
@@ -1896,6 +1936,20 @@ proto.services.TaskLog.serializeBinaryToWriter = function(message, writer) {
   if (f.length > 0) {
     writer.writeString(
       13,
+      f
+    );
+  }
+  f = message.getDevice();
+  if (f.length > 0) {
+    writer.writeString(
+      14,
+      f
+    );
+  }
+  f = message.getApp();
+  if (f.length > 0) {
+    writer.writeString(
+      15,
       f
     );
   }
@@ -2133,6 +2187,42 @@ proto.services.TaskLog.prototype.getPassword = function() {
  */
 proto.services.TaskLog.prototype.setPassword = function(value) {
   return jspb.Message.setProto3StringField(this, 13, value);
+};
+
+
+/**
+ * optional string device = 14;
+ * @return {string}
+ */
+proto.services.TaskLog.prototype.getDevice = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 14, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.services.TaskLog} returns this
+ */
+proto.services.TaskLog.prototype.setDevice = function(value) {
+  return jspb.Message.setProto3StringField(this, 14, value);
+};
+
+
+/**
+ * optional string app = 15;
+ * @return {string}
+ */
+proto.services.TaskLog.prototype.getApp = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 15, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.services.TaskLog} returns this
+ */
+proto.services.TaskLog.prototype.setApp = function(value) {
+  return jspb.Message.setProto3StringField(this, 15, value);
 };
 
 
