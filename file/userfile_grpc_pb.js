@@ -74,6 +74,28 @@ create: {
     responseSerialize: serialize_services_BatchTaskResult,
     responseDeserialize: deserialize_services_BatchTaskResult,
   },
+  delete: {
+    path: '/services.FileService/Delete',
+    requestStream: false,
+    responseStream: false,
+    requestType: file_userfile_pb.UserFile,
+    responseType: common_common_entity_pb.BatchTaskResult,
+    requestSerialize: serialize_services_UserFile,
+    requestDeserialize: deserialize_services_UserFile,
+    responseSerialize: serialize_services_BatchTaskResult,
+    responseDeserialize: deserialize_services_BatchTaskResult,
+  },
+  updateStatistics: {
+    path: '/services.FileService/UpdateStatistics',
+    requestStream: false,
+    responseStream: false,
+    requestType: file_userfile_pb.UserFile,
+    responseType: file_userfile_pb.UserFile,
+    requestSerialize: serialize_services_UserFile,
+    requestDeserialize: deserialize_services_UserFile,
+    responseSerialize: serialize_services_UserFile,
+    responseDeserialize: deserialize_services_UserFile,
+  },
 };
 
 exports.FileServiceClient = grpc.makeGenericClientConstructor(FileServiceService);

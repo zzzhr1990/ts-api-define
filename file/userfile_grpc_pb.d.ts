@@ -14,6 +14,8 @@ interface IFileServiceService extends grpc.ServiceDefinition<grpc.UntypedService
     get: IFileServiceService_IGet;
     update: IFileServiceService_IUpdate;
     rename: IFileServiceService_IRename;
+    delete: IFileServiceService_IDelete;
+    updateStatistics: IFileServiceService_IUpdateStatistics;
 }
 
 interface IFileServiceService_ICreate extends grpc.MethodDefinition<file_userfile_pb.UserFile, file_userfile_pb.UserFile> {
@@ -52,6 +54,24 @@ interface IFileServiceService_IRename extends grpc.MethodDefinition<file_userfil
     responseSerialize: grpc.serialize<common_common_entity_pb.BatchTaskResult>;
     responseDeserialize: grpc.deserialize<common_common_entity_pb.BatchTaskResult>;
 }
+interface IFileServiceService_IDelete extends grpc.MethodDefinition<file_userfile_pb.UserFile, common_common_entity_pb.BatchTaskResult> {
+    path: "/services.FileService/Delete";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<file_userfile_pb.UserFile>;
+    requestDeserialize: grpc.deserialize<file_userfile_pb.UserFile>;
+    responseSerialize: grpc.serialize<common_common_entity_pb.BatchTaskResult>;
+    responseDeserialize: grpc.deserialize<common_common_entity_pb.BatchTaskResult>;
+}
+interface IFileServiceService_IUpdateStatistics extends grpc.MethodDefinition<file_userfile_pb.UserFile, file_userfile_pb.UserFile> {
+    path: "/services.FileService/UpdateStatistics";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<file_userfile_pb.UserFile>;
+    requestDeserialize: grpc.deserialize<file_userfile_pb.UserFile>;
+    responseSerialize: grpc.serialize<file_userfile_pb.UserFile>;
+    responseDeserialize: grpc.deserialize<file_userfile_pb.UserFile>;
+}
 
 export const FileServiceService: IFileServiceService;
 
@@ -60,6 +80,8 @@ export interface IFileServiceServer {
     get: grpc.handleUnaryCall<file_userfile_pb.UserFile, file_userfile_pb.UserFile>;
     update: grpc.handleUnaryCall<file_userfile_pb.UserFile, file_userfile_pb.UserFile>;
     rename: grpc.handleUnaryCall<file_userfile_pb.UserFile, common_common_entity_pb.BatchTaskResult>;
+    delete: grpc.handleUnaryCall<file_userfile_pb.UserFile, common_common_entity_pb.BatchTaskResult>;
+    updateStatistics: grpc.handleUnaryCall<file_userfile_pb.UserFile, file_userfile_pb.UserFile>;
 }
 
 export interface IFileServiceClient {
@@ -75,6 +97,12 @@ export interface IFileServiceClient {
     rename(request: file_userfile_pb.UserFile, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.BatchTaskResult) => void): grpc.ClientUnaryCall;
     rename(request: file_userfile_pb.UserFile, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.BatchTaskResult) => void): grpc.ClientUnaryCall;
     rename(request: file_userfile_pb.UserFile, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.BatchTaskResult) => void): grpc.ClientUnaryCall;
+    delete(request: file_userfile_pb.UserFile, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.BatchTaskResult) => void): grpc.ClientUnaryCall;
+    delete(request: file_userfile_pb.UserFile, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.BatchTaskResult) => void): grpc.ClientUnaryCall;
+    delete(request: file_userfile_pb.UserFile, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.BatchTaskResult) => void): grpc.ClientUnaryCall;
+    updateStatistics(request: file_userfile_pb.UserFile, callback: (error: grpc.ServiceError | null, response: file_userfile_pb.UserFile) => void): grpc.ClientUnaryCall;
+    updateStatistics(request: file_userfile_pb.UserFile, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_userfile_pb.UserFile) => void): grpc.ClientUnaryCall;
+    updateStatistics(request: file_userfile_pb.UserFile, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_userfile_pb.UserFile) => void): grpc.ClientUnaryCall;
 }
 
 export class FileServiceClient extends grpc.Client implements IFileServiceClient {
@@ -91,4 +119,10 @@ export class FileServiceClient extends grpc.Client implements IFileServiceClient
     public rename(request: file_userfile_pb.UserFile, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.BatchTaskResult) => void): grpc.ClientUnaryCall;
     public rename(request: file_userfile_pb.UserFile, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.BatchTaskResult) => void): grpc.ClientUnaryCall;
     public rename(request: file_userfile_pb.UserFile, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.BatchTaskResult) => void): grpc.ClientUnaryCall;
+    public delete(request: file_userfile_pb.UserFile, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.BatchTaskResult) => void): grpc.ClientUnaryCall;
+    public delete(request: file_userfile_pb.UserFile, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.BatchTaskResult) => void): grpc.ClientUnaryCall;
+    public delete(request: file_userfile_pb.UserFile, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: common_common_entity_pb.BatchTaskResult) => void): grpc.ClientUnaryCall;
+    public updateStatistics(request: file_userfile_pb.UserFile, callback: (error: grpc.ServiceError | null, response: file_userfile_pb.UserFile) => void): grpc.ClientUnaryCall;
+    public updateStatistics(request: file_userfile_pb.UserFile, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: file_userfile_pb.UserFile) => void): grpc.ClientUnaryCall;
+    public updateStatistics(request: file_userfile_pb.UserFile, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: file_userfile_pb.UserFile) => void): grpc.ClientUnaryCall;
 }

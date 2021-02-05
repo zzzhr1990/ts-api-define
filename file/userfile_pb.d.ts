@@ -144,67 +144,51 @@ export namespace UserFile {
     }
 }
 
-export class TrashInfo extends jspb.Message { 
-    getIdentity(): string;
-    setIdentity(value: string): TrashInfo;
+export class FileListFilter extends jspb.Message { 
+    clearIdentityList(): void;
+    getIdentityList(): Array<string>;
+    setIdentityList(value: Array<string>): FileListFilter;
+    addIdentity(value: string, index?: number): string;
 
-    getUserIdentity(): number;
-    setUserIdentity(value: number): TrashInfo;
-
-    getPath(): string;
-    setPath(value: string): TrashInfo;
-
-    getPathIdentity(): string;
-    setPathIdentity(value: string): TrashInfo;
-
-    getCreateTime(): number;
-    setCreateTime(value: number): TrashInfo;
+    clearTypeList(): void;
+    getTypeList(): Array<number>;
+    setTypeList(value: Array<number>): FileListFilter;
+    addType(value: number, index?: number): number;
 
     getName(): string;
-    setName(value: string): TrashInfo;
+    setName(value: string): FileListFilter;
 
-    getType(): number;
-    setType(value: number): TrashInfo;
+    getLabel(): number;
+    setLabel(value: number): FileListFilter;
 
-    getMime(): string;
-    setMime(value: string): TrashInfo;
-
-    getAddon(): string;
-    setAddon(value: string): TrashInfo;
-
-    getOp(): number;
-    setOp(value: number): TrashInfo;
-
-    getSize(): number;
-    setSize(value: number): TrashInfo;
+    getHidden(): boolean;
+    setHidden(value: boolean): FileListFilter;
 
     getDirectory(): boolean;
-    setDirectory(value: boolean): TrashInfo;
+    setDirectory(value: boolean): FileListFilter;
+
+    getRegularFile(): boolean;
+    setRegularFile(value: boolean): FileListFilter;
 
 
     serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): TrashInfo.AsObject;
-    static toObject(includeInstance: boolean, msg: TrashInfo): TrashInfo.AsObject;
+    toObject(includeInstance?: boolean): FileListFilter.AsObject;
+    static toObject(includeInstance: boolean, msg: FileListFilter): FileListFilter.AsObject;
     static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
     static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: TrashInfo, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): TrashInfo;
-    static deserializeBinaryFromReader(message: TrashInfo, reader: jspb.BinaryReader): TrashInfo;
+    static serializeBinaryToWriter(message: FileListFilter, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): FileListFilter;
+    static deserializeBinaryFromReader(message: FileListFilter, reader: jspb.BinaryReader): FileListFilter;
 }
 
-export namespace TrashInfo {
+export namespace FileListFilter {
     export type AsObject = {
-        identity: string,
-        userIdentity: number,
-        path: string,
-        pathIdentity: string,
-        createTime: number,
+        identityList: Array<string>,
+        typeList: Array<number>,
         name: string,
-        type: number,
-        mime: string,
-        addon: string,
-        op: number,
-        size: number,
+        label: number,
+        hidden: boolean,
         directory: boolean,
+        regularFile: boolean,
     }
 }
